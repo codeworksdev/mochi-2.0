@@ -1,0 +1,75 @@
+CACHE MANIFEST
+# v1.0 2024-06-11
+
+# HTML files should not be included here
+CACHE:
+
+# CSS
+bootstrap/css/bootstrap.css
+bootstrap/css/bootstrap.min.css
+bootstrap/css/bootstrap.rtl.css
+bootstrap/css/bootstrap.rtl.min.css
+bootstrap/css/bootstrap-grid.css
+bootstrap/css/bootstrap-grid.min.css
+bootstrap/css/bootstrap-grid.rtl.css
+bootstrap/css/bootstrap-grid.rtl.min.css
+bootstrap/css/bootstrap-reboot.css
+bootstrap/css/bootstrap-reboot.min.css
+bootstrap/css/bootstrap-reboot.rtl.css
+bootstrap/css/bootstrap-reboot.rtl.min.css
+bootstrap/css/bootstrap-utilities.css
+bootstrap/css/bootstrap-utilities.min.css
+bootstrap/css/bootstrap-utilities.rtl.css
+bootstrap/css/bootstrap-utilities.rtl.min.css
+frontend/css/print.css
+frontend/css/style.css
+mochi/css/helpers/animate.less/dist/css/animate.css
+mochi/js/jquery/ui/jquery-ui.css
+mochi/js/jquery/ui/jquery-ui.min.css
+mochi/js/jquery/ui/jquery-ui.structure.css
+mochi/js/jquery/ui/jquery-ui.structure.min.css
+mochi/js/jquery/ui/jquery-ui.theme.css
+mochi/js/jquery/ui/jquery-ui.theme.min.css
+
+# JS
+bootstrap/js/bootstrap.bundle.js
+bootstrap/js/bootstrap.bundle.min.js
+bootstrap/js/bootstrap.esm.js
+bootstrap/js/bootstrap.esm.min.js
+bootstrap/js/bootstrap.js
+bootstrap/js/bootstrap.min.js
+frontend/js/onload.js
+mochi/js/jquery/jquery.min.js
+mochi/js/jquery/ui/external/jquery/jquery.js
+mochi/js/jquery/ui/jquery-ui.js
+mochi/js/jquery/ui/jquery-ui.min.js
+mochi/js/libraries.js
+mochi/js/mochi.js
+mochi/js/mochi.min.js
+mochi/js/plugins/dialog/dist/dialog.js
+mochi/js/plugins/dialog/dist/dialog.min.js
+mochi/js/plugins/veeva/dist/veeva.js
+mochi/js/plugins/veeva/dist/veeva.min.js
+mochi/js/plugins/veeva/dist/veeva-library.js
+mochi/js/plugins/veeva/dist/veeva-library.min.js
+sw.js
+
+# PNG/JPEG/GIF
+frontend/img/brand/launcher-icon-1x.png
+frontend/img/brand/launcher-icon-4x.png
+mochi/js/jquery/ui/images/ui-icons_444444_256x240.png
+mochi/js/jquery/ui/images/ui-icons_555555_256x240.png
+mochi/js/jquery/ui/images/ui-icons_777620_256x240.png
+mochi/js/jquery/ui/images/ui-icons_777777_256x240.png
+mochi/js/jquery/ui/images/ui-icons_cc0000_256x240.png
+mochi/js/jquery/ui/images/ui-icons_ffffff_256x240.png
+
+# / is the wildcard for all pages
+# so, for all pages, offline.html will be displayed if the user is offline
+# paths are relative to this file
+FALLBACK:
+/ offline.html
+
+# Resources that require the user to be online
+NETWORK:
+*
