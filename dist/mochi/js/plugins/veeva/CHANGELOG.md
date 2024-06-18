@@ -1,16 +1,11 @@
 # Veeva.js
-_Add Veeva CLM compatibility to Mochi._
+_Add Veeva CLM compatibility to Mochi 2.0._
 
-> [v1.1](https://github.com/codeworksdev/mochi/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)
+> [v1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)
 
-This drop-in extension allows you to quickly develop a **[Veeva CLM application](https://www.veeva.com/products/multichannel-crm/clm/)** within Mochi while maintaining full Veeva CLM compliance. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special API calls that interface directly with the platform.
+This plugin allows you to develop a **[Veeva Multichannel CRM](https://www.veeva.com/products/multichannel-crm/clm/)** within your Mochi 2.0 application while maintaining full compliance with Veeva standards. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special **[API calls](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** that interface directly with the Veeva Multichannel CRM platform.
 
 ## CHANGELOG
 
-> **1.1** (2021-05-03)
-> - Added Veeva Windows CRM compatibility.
-> - New option `CLM_FORCE_VEEVA_NAVIGATION` forces navigation functions to assume Veeva platform.
-> - Updated Veeva JavaScript Library version (181.9.0 to 203.1.201).
-
-> **1.0** (2018-06-07)
+> **1.0** (2024-05-26)
 > - Initial release.

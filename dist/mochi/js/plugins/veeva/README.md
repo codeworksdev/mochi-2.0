@@ -1,21 +1,22 @@
 # Veeva.js
-_Add Veeva CLM compatibility to Mochi._
+_Add Veeva CLM compatibility to Mochi 2.0._
 
-> [v1.1](https://github.com/codeworksdev/mochi/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)
+> [v1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)
 
-This drop-in extension allows you to quickly develop a **[Veeva CLM application](https://www.veeva.com/products/multichannel-crm/clm/)** within Mochi while maintaining full Veeva CLM compliance. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special API calls that interface directly with the platform.
+This plugin allows you to develop a **[Veeva Multichannel CRM](https://www.veeva.com/products/multichannel-crm/clm/)** within your Mochi 2.0 application while maintaining full compliance with Veeva standards. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special **[API calls](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** that interface directly with the Veeva Multichannel CRM platform.
 
 ## INSTALLATION
-To use Veeva.js in your app, you must drop two files as `<script>` imports in your HTML documents (i.e., just before your `onload.js` is loaded). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
+To use Veeva.js in your app, you must drop two files as `<script>` imports in your Mochi 2.0 application (i.e., just before your `onload.js` is inlcuded). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
 
 **FILES**
 * mochi/js/plugins/veeva/dist/veeva-library.js
 * mochi/js/plugins/veeva/dist/veeva.js
+* mochi/js/plugins/veeva/dist/veeva.min.js
 
 ```html
 ...
         <script src="mochi/js/mochi.min.js"></script>
-        <script src="mochi/js/plugins/veeva/dist/veeva-library.min.js"></script>
+        <script src="mochi/js/plugins/veeva/dist/veeva-library.js"></script>
         <script src="mochi/js/plugins/veeva/dist/veeva.min.js"></script>
         <script src="frontend/js/onload.js"></script>
     </body>
@@ -107,35 +108,35 @@ bool   | CLM_NAVIGATION_THEME       | false
 bool   | CLM_FORCE_VEEVA_NAVIGATION | false
 ```
 > **CLM_VERSION**
-> 
+>
 > Decimal number representing the presentation version.
 
 > **CLM_NAME**
-> 
+>
 > Descriptive name of the presentation. By default, this value is generated automatically using the contents of the `<title>` tag in your HTML document.
 
 > **CLM_ID**
-> 
+>
 > Machine-readable name of the presentation. By default, this value is generated automatically using `options.CLM_NAME` and `options.CLM_VERSION` combined.
 
 > **CLM_SLIDE_PREFIX**
-> 
+>
 > Prefix for each slide (i.e., HTML file name) in the presentation. By default, this value is generated automatically using `options.CLM_ID` and appending "_slide" to the end of the prefix.
 
 > **CLM_NUMBER_PAD**
-> 
+>
 > Determines the maximum number padding that should be assumed for each slide number in the presentation (e.g., a padding of 2 assumes "my_presentation_slide01.html").
 
 > **CLM_FIRST_SLIDE_NUMBER**
-> 
+>
 > Determines the number of the first slide in the presentation. By default, zero-based numbering is assumed while using `options.CLM_NUMBER_PAD` (e.g., "my_presentation_slide00.html").
 
 > **CLM_LAST_SLIDE_NUMBER**
-> 
+>
 > Determines the number of the last slide in the presentation.
 
 > **CLM_NAVIGATION**
-> 
+>
 > If true, adds HTML navigation controls to the `<body>` tag of your document. The ID of the generated HTML element is `mochi-plugin-veeva-nav`, and contains 3 `<span>` tags &mdash; each defining a separate navigation control:
 > ```html
 > <div data-mochi="plugin" id="mochi-plugin-veeva-nav">
@@ -149,11 +150,11 @@ bool   | CLM_FORCE_VEEVA_NAVIGATION | false
 > * `<span>` <span>#</span>3 triggers `$m.veeva.nextSlide()`
 
 > **CLM_NAVIGATION_THEME**
-> 
+>
 > By default, the navigation controls created by `options.CLM_NAVIGATION` are not themed with any CSS or icons (i.e., this option is set to false). This allows you to easily theme the controls yourself. Enabling this option assigns a basic SVG icon to each control.
 
 > **CLM_FORCE_VEEVA_NAVIGATION**
-> 
+>
 > Enabling this option tells the navigation functions to not attempt to auto-detect the platform in use (e.g., Veeva, Windows, web browser, etc.). This is helpful in situtations where the intended target platfom is not fully supported by this plugin. Otherwise, it's recommended to keep this option disabled.
 
 ___
