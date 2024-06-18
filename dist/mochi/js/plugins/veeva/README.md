@@ -161,7 +161,7 @@ ___
 # MULTICHANNEL CRM DOCUMENTATION
 Veeva publishes a JavaScript library to assist customers and their creative agencies with developing personalized and dynamic HTML5 content that interacts with the Veeva CRM database. This library is supported for CLM, Engage for Portals, CoBrowse, and MyInsights content creation.
 
-Please head on over to the official **[Multichannel CRM documentation](http://developer.veevacrm.com/api/CLMLibrary/#multichannel-crm)** to take full advantage of all functions provided by the Veeva JS library.
+Please head on over to the official **[Multichannel CRM documentation](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** to take full advantage of all functions provided by the Veeva JS library.
 
 ___
 # LICENSE
