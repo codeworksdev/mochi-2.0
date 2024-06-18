@@ -2,7 +2,7 @@
 {
     var CACHE = {
         VERSION : 1.0,
-        DATE : '2024-06-11',
+        DATE : '2024-05-26',
         NAME : 'mochi-sw-cache-master',
         LIST : [
             './',
@@ -62,7 +62,6 @@
             'mochi/js/plugins/veeva/dist/veeva.js',
             'mochi/js/plugins/veeva/dist/veeva.min.js',
             'mochi/js/plugins/veeva/dist/veeva-library.js',
-            'mochi/js/plugins/veeva/dist/veeva-library.min.js',
             'offline.html',
             ],
         };

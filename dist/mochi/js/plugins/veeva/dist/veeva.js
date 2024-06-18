@@ -1,6 +1,6 @@
 /*!
- * Mochi Plugin - Veeva CLM Application v1.1 (https://github.com/codeworksdev/mochi/tree/master/dist/frontend/js/plugins/veeva)
- * Copyright (c) 2014-2019 CODEWORKS <support@codeworksnyc.com>
+ * Mochi 2.0 Plugin - Veeva CLM Application v1.0 (https://github.com/codeworksdev/mochi-2.0/tree/master/dist/frontend/js/plugins/veeva)
+ * Copyright (c) 2014-2024 CODEWORKS <support@codeworksnyc.com>
  * Licensed under the MIT license
  */
 $(document).ready(

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v1.0 2024-06-11
+# v1.0 2024-05-26
 
 # HTML files should not be included here
 CACHE:
@@ -51,7 +51,6 @@ mochi/js/plugins/dialog/dist/dialog.min.js
 mochi/js/plugins/veeva/dist/veeva.js
 mochi/js/plugins/veeva/dist/veeva.min.js
 mochi/js/plugins/veeva/dist/veeva-library.js
-mochi/js/plugins/veeva/dist/veeva-library.min.js
 sw.js
 
 # PNG/JPEG/GIF

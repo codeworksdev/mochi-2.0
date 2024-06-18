@@ -1,12 +1,12 @@
 # Dialog.js
-_Dialog plugin for Mochi._
+_Dialog plugin for Mochi 2.0._
 
-> [v1.0](https://github.com/codeworksdev/mochi/blob/master/dist/mochi/js/plugins/dialog/CHANGELOG.md)
+> [v1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/dialog/CHANGELOG.md)
 
 This plugin uses the **[jQuery UI Dialog Widget](https://jqueryui.com/dialog/)** as a base and introduces new features while not obstructing the options already provided by the standard widget.
 
 ## INSTALLATION
-To use Dialog.js in your app, simply drop this single file as a `<script>` import in your HTML files (i.e., just before your `onload.js` is loaded). The plugin will register itself as `$m.dialog`, making it instantly accessible by the rest of your application. That's it! You now have a reliable dialog widget installed as a Mochi plugin.
+To use Dialog.js in your app, simply drop this single file as a `<script>` import in your HTML files (i.e., just before your `onload.js` is loaded). The plugin will register itself as `$m.dialog`, making it instantly accessible by the rest of your application. That's it! You now have a reliable dialog widget installed as a Mochi 2.0 plugin.
 
 **FILES**
 * mochi/js/plugins/dialog/dist/dialog.js
