@@ -1,0 +1,147 @@
+// -----------------------------------------------------------------------------
+// COLORS
+// -----------------------------------------------------------------------------
+
+$_black      : #000000;
+$_blue       : #007bff;
+$_cyan       : #17a2b8;
+$_danger     : #dc3545;
+$_dark       : #343a40;
+$_darkgrey   : #343a40;
+$_gray       : #6c757d;
+$_gray-dark  : #343a40;
+$_green      : #28a745;
+$_grey       : #6c757d;
+$_indigo     : #6610f2;
+$_info       : #17a2b8;
+$_light      : #f8f9fa;
+$_lightgrey  : #999999;
+$_link-color : $_blue;
+$_link-hover : darken($_link-color, 50%);
+$_orange     : #fd7e14;
+$_pink       : #e83e8c;
+$_primary    : #007bff;
+$_purple     : #6f42c1;
+$_red        : #dc3545;
+$_secondary  : #6c757d;
+$_success    : #28a745;
+$_teal       : #20c997;
+$_warning    : #ffc107;
+$_white      : #ffffff;
+$_yellow     : #ffc107;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY
+// -----------------------------------------------------------------------------
+
+$_sans-serif : Arial, Helvetica, sans-serif;
+$_serif      : Georgia, "Times New Roman", Times, serif;
+
+// -----------------------------------------------------------------------------
+// MIXIN: BOX SHADOW
+// -----------------------------------------------------------------------------
+
+@mixin _boxShadow(
+    $x      : 0,
+    $y      : 0,
+    $radius : 5px,
+    $spread : 0,
+    $color  : fade($_black, 50%)
+    ) {
+        @if type-of($x) == string {
+                    box-shadow: $x;
+            -webkit-box-shadow: $x;
+               -moz-box-shadow: $x;
+        } @else {
+                    box-shadow: $x $y $radius $spread $color;
+            -webkit-box-shadow: $x $y $radius $spread $color;
+               -moz-box-shadow: $x $y $radius $spread $color;
+        }
+    }
+     
+// -----------------------------------------------------------------------------
+// MIXIN: CONTAIN FLOATS
+// -----------------------------------------------------------------------------
+
+@mixin _cf {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+    }
+
+// -----------------------------------------------------------------------------
+// GRADIENT
+// -----------------------------------------------------------------------------
+
+@mixin _gradient(
+    $a: $_black,
+    $b: fade($_black, 0%)) {
+    background-color: $b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($a), to($b));
+    background-image: -webkit-linear-gradient(top, $a, $b);
+    background-image: -moz-linear-gradient(top, $a, $b);
+    background-image: -o-linear-gradient(top, $a, $b);
+    background-image: linear-gradient(to bottom, $a, $b);
+    }
+
+// -----------------------------------------------------------------------------
+// IMAGES
+// -----------------------------------------------------------------------------
+
+@mixin _img(
+    $src      : none,
+    $w        : auto,
+    $h        : auto,
+    $size     : cover,
+    $position : 0 0,
+    $display  : block
+    ) {
+    @include _size($w, $h, $display);
+
+    background: transparent $position no-repeat;
+    background-size: $size;
+
+        @if $src == none {
+            background-image: none;
+        }
+        @else {
+            background-image: url($src);
+        }
+    }
+
+@mixin _img_src(
+    $src,
+    $w: auto,
+    $h: null) {
+        @if $src == none {
+            background-image: none;
+        }
+        @else {
+            background-image: url($src);
+        }
+
+        @if type-of($w) == number {
+            @if type-of($h) == null {
+                width: $w;
+            }
+            @else {
+                @include _size($w, $h);
+            }
+        }
+    }
+
+// -----------------------------------------------------------------------------
+// SIZE
+// -----------------------------------------------------------------------------
+
+@mixin _size($w, $h, $display: null) {
+    width: $w;
+    height: $h;
+
+        @if type-of($display) != null {
+            display: $display;
+        }
+    }

@@ -2,7 +2,7 @@
 // COLORS
 // -----------------------------------------------------------------------------
 
-@_black      : #000;
+@_black      : #000000;
 @_blue       : #007bff;
 @_cyan       : #17a2b8;
 @_danger     : #dc3545;
@@ -15,7 +15,7 @@
 @_indigo     : #6610f2;
 @_info       : #17a2b8;
 @_light      : #f8f9fa;
-@_lightgrey  : #999;
+@_lightgrey  : #999999;
 @_link-color : @_blue;
 @_link-hover : darken(@_link-color, 50%);
 @_orange     : #fd7e14;
@@ -38,6 +38,28 @@
 @_serif      : Georgia, "Times New Roman", Times, serif;
 
 #m {
+
+    // -----------------------------------------------------------------------------
+    // BOX SHADOW
+    // -----------------------------------------------------------------------------
+
+    .boxShadow(
+        @x      : 0;
+        @y      : 0;
+        @radius : 5px;
+        @spread : 0;
+        @color  : fade(@_black, 50%)
+        ) when (isnumber(@x)) {
+                box-shadow: @x @y @radius @spread @color;
+        -webkit-box-shadow: @x @y @radius @spread @color;
+           -moz-box-shadow: @x @y @radius @spread @color;
+        }
+
+    .boxShadow(@x) when (iskeyword(@x)) {
+        box-shadow: @x;
+        -webkit-box-shadow: @x;
+        -moz-box-shadow: @x;
+        }
 
     // -----------------------------------------------------------------------------
     // CONTAIN FLOATS
@@ -115,52 +137,7 @@
         }
 
     // -----------------------------------------------------------------------------
-    // SHOW/HIDE
-    // -----------------------------------------------------------------------------
-
-    .hidden()              {visibility: hidden;}
-    .visible()             {visibility: visible;}
-    .hide()                {display: none;}
-    .show(@display: block) {display: @display;}
-
-    // -----------------------------------------------------------------------------
-    // RESIZER
-    // -----------------------------------------------------------------------------
-
-    .size(@w; @h) {
-        width: @w;
-        height: @h;
-        }
-
-    .size(@w; @h; @display) {
-        display: @display;
-        width: @w;
-        height: @h;
-        }
-
-    // -----------------------------------------------------------------------------
-    // POSITIONING
-    // -----------------------------------------------------------------------------
-
-    .position(
-        @x        : 0;
-        @y        : 0;
-        @position : inherit;
-        @z-index  : inherit
-        ) {
-        position: @position;
-        left: @x;
-        top: @y;
-        z-index: @z-index;
-        }
-
-    .xy(@x: 0; @y: 0) {
-        left : @x;
-        top : @y;
-        }
-
-    // -----------------------------------------------------------------------------
-    // GRADIENTS
+    // GRADIENT
     // -----------------------------------------------------------------------------
 
     .gradient(
@@ -175,29 +152,7 @@
         }
 
     // -----------------------------------------------------------------------------
-    // BOX SHADOW
-    // -----------------------------------------------------------------------------
-
-    .boxShadow(
-        @x      : 0;
-        @y      : 0;
-        @radius : 5px;
-        @spread : 0;
-        @color  : fade(@_black, 50%)
-        ) when (isnumber(@x)) {
-        box-shadow: @x @y @radius @spread @color;
-        -webkit-box-shadow: @x @y @radius @spread @color;
-        -moz-box-shadow: @x @y @radius @spread @color;
-        }
-
-    .boxShadow(@x) when (iskeyword(@x)) {
-        box-shadow: @x;
-        -webkit-box-shadow: @x;
-        -moz-box-shadow: @x;
-        }
-
-    // -----------------------------------------------------------------------------
-    // IMAGE MAKERS
+    // IMAGES
     // -----------------------------------------------------------------------------
 
     .img() {
@@ -209,13 +164,13 @@
         }
 
     .img(
-    @url;
-    @w        : auto;
-    @h        : auto;
-    @size     : cover;
-    @position : 0 0;
-    @display  : block
-    ) {
+        @url;
+        @w        : auto;
+        @h        : auto;
+        @size     : cover;
+        @position : 0 0;
+        @display  : block
+        ) {
         .size(@w, @h, @display);
 
         background: transparent @position no-repeat url(@url);
@@ -247,6 +202,27 @@
         }
 
     // -----------------------------------------------------------------------------
+    // POSITIONING
+    // -----------------------------------------------------------------------------
+
+    .position(
+        @x;
+        @y;
+        @position;
+        @z-index : 1
+        ) {
+        position: @position;
+        left: @x;
+        top: @y;
+        z-index: @z-index;
+        }
+
+    .position(@x; @y) {
+        left : @x;
+        top : @y;
+        }
+
+    // -----------------------------------------------------------------------------
     // RESET
     // -----------------------------------------------------------------------------
 
@@ -273,6 +249,30 @@
             outline: none;
             }
         }
+
+    // -----------------------------------------------------------------------------
+    // SIZE
+    // -----------------------------------------------------------------------------
+
+    .size(@w; @h) {
+        width: @w;
+        height: @h;
+        }
+
+    .size(@w; @h; @display) {
+        display: @display;
+        width: @w;
+        height: @h;
+        }
+
+    // -----------------------------------------------------------------------------
+    // VISIBILITY
+    // -----------------------------------------------------------------------------
+
+    .hidden()              { visibility: hidden;  }
+    .hide()                { display: none;       }
+    .show(@display: block) { display: @display;   }
+    .visible()             { visibility: visible; }
 
     // -----------------------------------------------------------------------------
     // ZOOM
