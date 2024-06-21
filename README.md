@@ -55,8 +55,8 @@ dist/
 │   │
 │   ├── img/
 │   │   └── brand/
-│   │       ├── launcher-icon-1x.pmg
-│   │       └── launcher-icon-4x.pmg
+│   │       ├── launcher-icon-1x.png
+│   │       └── launcher-icon-4x.png
 │   │
 │   ├── js/
 │   │   └── onload.js
@@ -109,7 +109,7 @@ dist/
 │       ├── _base.scss
 │       ├── _mixins.scss
 │       ├── _notouch.scss
-│       ├── _printscss
+│       ├── _print.scss
 │       ├── print-sass.scss
 │       └── style-sass.scss
 │
