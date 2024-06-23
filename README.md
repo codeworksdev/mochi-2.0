@@ -3,15 +3,15 @@ _Front-end framework for developing responsive, mobile-first projects on the web
 
 > [**v2.0.0**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
-Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of new features, with a strong focus on offline web applications, and without all the limitations. This is achieved by integrating and maintaining offline versions of popular libraries that have been out in the wild for years.
+Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of enhanced features with a strong focus on offline web applications, and without all the limitations. This is achieved by including and maintaining offline versions of popular open-source projects that have been out in the wild for years.
 
 ## What is Bootstrap?
-[Bootstrap](http://getbootstrap.com/) is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with powerful [Sass](https://sass-lang.com/) variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on [jQuery](https://jquery.com/). Mochi 2.0 takes this a few steps further by enabling functionality that would normally require many hours of code writing and head-scratching. More information on Bootstrap [here](http://getbootstrap.com/).
+[Bootstrap](http://getbootstrap.com/) is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with powerful [Sass](https://sass-lang.com/) variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on [jQuery](https://jquery.com/). Mochi 2.0 takes this a step further by enabling functionality that would normally require many hours of code writing and head scratching. More information on Bootstrap [here](http://getbootstrap.com/).
 
 ## Usage
-To use Mochi simply [download the latest distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest) and extract the contents of the included **`dist`** folder to the root of your website directory (e.g., **`/var/www/html`** in some systems). That's it! You now have a fully functioning, Bootstrap-powered boilerplate web application installed on your website. Mochi 2.0 is designed to run either online or offline, depending on your desired configuration (more on that later).
+To use Mochi simply [download the latest distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest) and extract the contents of the included **`dist`** folder to the root of your website directory (e.g., **`/var/www/html`** in some systems). That's it! You now have a fully functioning and ready-to-deploy Bootstrap-powered HTML5 boilerplate web application installed on your website. Mochi 2.0 is designed to run either online or offline, depending on your desired configuration. More on that later.
 
-The included HTML starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/index.html)) is a great way to get started with using Mochi 2.0. Since it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML/CSS markup according to the latest standards.
+The included HTML5 starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/index.html)) is a great way to get started with Mochi 2.0. Since it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML5/CSS markup according to the latest standards.
 
 ## What's Included
 
@@ -233,25 +233,25 @@ dist/
 ___
 # Included Libraries
 
-One of the major advantages of using Mochi is that it comes packed with many useful 3rd-party libraries to help you develop your application rapidly, and with less effort than would be necessary with just the standard Bootstrap distribution. The following 3rd-party libraries are included with our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest):
+One of the major advantages of using Mochi 2.0 is that it comes packed with many useful 3rd-party projects to help you develop your application rapidly, and with less effort than would be necessary with just the standard Bootstrap distribution. The following 3rd-party projects are included with our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest):
 
-| Project           | Version | Developer Website                               |
-|-------------------|---------|-------------------------------------------------|
-| Animate.less      | 2.0     | https://animateforless.com/                     |
-| Basil.js          | 0.4.11  | https://github.com/Wisembly/basil.js            |
-| Bootstrap         | 5.3.3   | https://getbootstrap.com/                       |
-| Chart.js          | 4.4.3   | https://www.chartjs.org/                        |
-| Clipboard.js      | 2.0.11  | https://clipboardjs.com/                        |
-| Font Awesome Free | 6.5.2   | https://fontawesome.com/                        |
-| Holder.js         | 2.9.7   | http://holderjs.com/                            |
-| iScroll           | 5.2.0   | https://github.com/cubiq/iscroll                |
-| jQuery            | 3.7.1   | http://jquery.com/                              |
-| jQuery UI         | 1.13.3  | https://jqueryui.com/                           |
-| Modernizr         | 3.6.0   | https://modernizr.com/                          |
-| Popper.js         | 2.11.8  | https://popper.js.org/docs/v2/                  |
-| sprintf-js        | 1.1.3   | https://www.npmjs.com/package/sprintf-js        |
-| Underscore.js     | 1.13.6  | http://underscorejs.org/                        |
-| Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string  |
+| Project           | Version | Developer Website                              |
+|-------------------|---------|------------------------------------------------|
+| Animate.less      | 2.0     | https://animateforless.com/                    |
+| Basil.js          | 0.4.11  | https://github.com/Wisembly/basil.js           |
+| Bootstrap         | 5.3.3   | https://getbootstrap.com/                      |
+| Chart.js          | 4.4.3   | https://www.chartjs.org/                       |
+| Clipboard.js      | 2.0.11  | https://clipboardjs.com/                       |
+| Font Awesome Free | 6.5.2   | https://fontawesome.com/                       |
+| Holder.js         | 2.9.7   | http://holderjs.com/                           |
+| iScroll           | 5.2.0   | https://github.com/cubiq/iscroll               |
+| jQuery            | 3.7.1   | http://jquery.com/                             |
+| jQuery UI         | 1.13.3  | https://jqueryui.com/                          |
+| Modernizr         | 3.6.0   | https://modernizr.com/                         |
+| Popper.js         | 2.11.8  | https://popper.js.org/docs/v2/                 |
+| sprintf-js        | 1.1.3   | https://www.npmjs.com/package/sprintf-js       |
+| Underscore.js     | 1.13.6  | http://underscorejs.org/                       |
+| Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string |
 
 ___
 # Sass CSS Preprocessor Support
@@ -262,7 +262,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Sass_(style_sheet_language)), [Sa
 
 There are many applications that will get you up and running with Sass in a few minutes for Mac, Windows, and Linux. You can download most of the applications for free but a few of them are paid apps. More on that [here](https://sass-lang.com/install/).
 
-## Predefined Media Queries
+## Predefined CSS Media Queries
 Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) are defined in the folder **`dist/frontend/scss`**. Each media query is assigned a dedicated Sass import file for better organization, and of course, they're all completely optional. Each media query assumes the standard (96dpi) screen resolution.
 
 | 96dpi (1dppx)   | Typical Device                | File (96dpi)   |
@@ -278,8 +278,8 @@ Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/
 | >= 992px        | Tablet (medium)               | `_992up.scss`  |
 | >= 1020px       | Tablet (large)                | `_1020up.scss` |
 | >= 1024px       | Tablet (large)                | `_1024up.scss` |
-| >= 1170px       | Desktop/Laptop/Tablet         | `_1170up.scss` |
-| >= 1200px       | Desktop/Laptop/Tablet         | `_1200up.scss` |
+| >= 1170px       | Desktop, Laptop, Tablet       | `_1170up.scss` |
+| >= 1200px       | Desktop, Laptop, Tablet       | `_1200up.scss` |
 | >= 1400px       | Desktop/Laptop (HD)           | `_1400up.scss` |
 | >= 1440px       | Desktop/Laptop (HD)           | `_1440up.scss` |
 | >= 1560px       | Desktop (HD)                  | `_1560up.scss` |
@@ -349,8 +349,8 @@ Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/
 | >= 992px        | Tablet (medium)               | `_992up.less`  |
 | >= 1020px       | Tablet (large)                | `_1020up.less` |
 | >= 1024px       | Tablet (large)                | `_1024up.less` |
-| >= 1170px       | Desktop/Laptop/Tablet         | `_1170up.less` |
-| >= 1200px       | Desktop/Laptop/Tablet         | `_1200up.less` |
+| >= 1170px       | Desktop, Laptop, Tablet       | `_1170up.less` |
+| >= 1200px       | Desktop, Laptop, Tablet       | `_1200up.less` |
 | >= 1400px       | Desktop/Laptop (HD)           | `_1400up.less` |
 | >= 1440px       | Desktop/Laptop (HD)           | `_1440up.less` |
 | >= 1560px       | Desktop (HD)                  | `_1560up.less` |
@@ -405,9 +405,9 @@ _**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozi
 
 ___
 # Apache Server Configs
-This [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file (in [**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/.htaccess)) is a collection of boilerplate configurations that can help your server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain.  More information [here](https://github.com/h5bp/server-configs-apache).
+The [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file ([**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/.htaccess)) is a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
 
-_**Note:** You can delete this file without issue if it doesn't apply to your server or project requirements._
+_**Note:** You can safely delete this file without issue if it doesn't apply to your server or project requirements._
 
 ___
 # API
