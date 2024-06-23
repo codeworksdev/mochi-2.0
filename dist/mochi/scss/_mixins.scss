@@ -58,7 +58,7 @@ $_serif      : Georgia, "Times New Roman", Times, serif;
                -moz-box-shadow: $x $y $radius $spread $color;
         }
     }
-     
+
 // -----------------------------------------------------------------------------
 // MIXIN: CONTAIN FLOATS
 // -----------------------------------------------------------------------------
@@ -134,6 +134,52 @@ $_serif      : Georgia, "Times New Roman", Times, serif;
     }
 
 // -----------------------------------------------------------------------------
+// POSITION
+// -----------------------------------------------------------------------------
+
+@mixin _position(
+    $x,
+    $y,
+    $position: null,
+    $z-index: null) {
+        left: $x;
+        top: $y;
+
+        @if type-of($position) != null {
+            position: $position;
+            z-index: $z-index;
+        }
+    }
+
+// -----------------------------------------------------------------------------
+// RESET
+// -----------------------------------------------------------------------------
+
+@mixin _reset($display: block) {
+    display: $display;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: initial;
+    font-family: $_sans-serif;
+    font-size: initial;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+
+    &, &:focus {
+        outline: none;
+        }
+    }
+
+// -----------------------------------------------------------------------------
 // SIZE
 // -----------------------------------------------------------------------------
 
@@ -144,4 +190,25 @@ $_serif      : Georgia, "Times New Roman", Times, serif;
         @if type-of($display) != null {
             display: $display;
         }
+    }
+
+// -----------------------------------------------------------------------------
+// VISIBILITY
+// -----------------------------------------------------------------------------
+
+@mixin _hidden                { visibility: hidden;  }
+@mixin _hide                  { display: none;       }
+@mixin _show($display: block) { display: $display;   }
+@mixin _visible               { visibility: visible; }
+
+// -----------------------------------------------------------------------------
+// ZOOM
+// -----------------------------------------------------------------------------
+
+@mixin _zoom($scale: 1.0, $origin: left center) {
+                     zoom: $scale;
+                 -ms-zoom: $scale;
+             -webkit-zoom: $scale;
+           -moz-transform: scale($scale, $scale);
+    -moz-transform-origin: $origin;
     }

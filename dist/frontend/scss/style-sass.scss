@@ -2,6 +2,8 @@
 @import "../../mochi/js/jquery/ui/jquery-ui.min";
 @import "../../mochi/css/helpers/animate.less/dist/css/animate";
 @import "../../mochi/scss/_mixins";
+@import "../../mochi/scss/_base";
+@import "_mixins";
 @import "_base";
 
 @media only screen and ( min-width: 375px  ) { @import "../../mochi/scss/_375up";  @import "_375up";  }
@@ -22,8 +24,12 @@
 @media only screen and ( min-width: 1560px ) { @import "../../mochi/scss/_1560up"; @import "_1560up"; }
 @media only screen and ( min-width: 1920px ) { @import "../../mochi/scss/_1920up"; @import "_1920up"; }
 @media only screen and ( min-width: 2560px ) { @import "../../mochi/scss/_2560up"; @import "_2560up"; }
+@media only screen and ( min-width: 3840px ) { @import "../../mochi/scss/_3840up"; @import "_3840up"; }
 
-html.no-touchevents {
-    @import "../../mochi/scss/_notouch";
-    @import "_notouch";
+html {
+
+    &.no-touchevents {
+        @import "../../mochi/scss/_notouch";
+        @import "_notouch";
+        }
     }
