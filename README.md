@@ -3,15 +3,15 @@ _Front-end framework for developing responsive, mobile-first projects on the web
 
 > [**v2.0.0**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
-Mochi 2.0 is a ready-to-deploy HTML5 boilerplate framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of new features, with a strong focus on offline web applications, without all the limitations. This is achieved by integrating and maintaining offline versions of popular libraries that have been out in the wild for years.
+Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of new features, with a strong focus on offline web applications, and without all the limitations. This is achieved by integrating and maintaining offline versions of popular libraries that have been out in the wild for years.
 
 ## What is Bootstrap?
 [Bootstrap](http://getbootstrap.com/) is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with powerful [Sass](https://sass-lang.com/) variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on [jQuery](https://jquery.com/). Mochi 2.0 takes this a few steps further by enabling functionality that would normally require many hours of code writing and head-scratching. More information on Bootstrap [here](http://getbootstrap.com/).
 
 ## Usage
-To use Mochi, simply [download the latest distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest) and extract the contents of the included **`dist`** folder to the root of your website directory (e.g., **`/var/www/html`** in some systems). That's it! You now have a fully functioning, Bootstrap-powered boilerplate web application installed on your website. Mochi 2.0 is designed to run either online or offline, depending on your desired configuration (more on that later).
+To use Mochi simply [download the latest distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest) and extract the contents of the included **`dist`** folder to the root of your website directory (e.g., **`/var/www/html`** in some systems). That's it! You now have a fully functioning, Bootstrap-powered boilerplate web application installed on your website. Mochi 2.0 is designed to run either online or offline, depending on your desired configuration (more on that later).
 
-The included HTML starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/index.html)) is a great way to get started with using Mochi 2.0. Because it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML/CSS markup according to the latest web standards.
+The included HTML starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/index.html)) is a great way to get started with using Mochi 2.0. Since it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML/CSS markup according to the latest standards.
 
 ## What's Included
 
@@ -38,13 +38,16 @@ dist/
 │   │   ├── bootstrap-utilities.rtl.css
 │   │   └── bootstrap-utilities.rtl.css
 │   │
-│   └── js/
-│       ├── bootstrap.bundle.js
-│       ├── bootstrap.bundle.min.js
-│       ├── bootstrap.esm.js
-│       ├── bootstrap.esm.min.js
-│       ├── bootstrap.js
-│       └── bootstrap.min.js
+│   ├── js/
+│   │   ├── bootstrap.bundle.js
+│   │   ├── bootstrap.bundle.min.js
+│   │   ├── bootstrap.esm.js
+│   │   ├── bootstrap.esm.min.js
+│   │   ├── bootstrap.js
+│   │   └── bootstrap.min.js
+│   │
+│   └── scss/
+│       └── bootstrap.scss
 │
 ├── frontend/
 │   ├── css/
@@ -80,6 +83,7 @@ dist/
 │   │   ├── _1560up.less
 │   │   ├── _1920up.less
 │   │   ├── _2560up.less
+│   │   ├── _3840up.less
 │   │   ├── _base.less
 │   │   ├── _mixins.less
 │   │   ├── _notouch.less
@@ -87,7 +91,7 @@ dist/
 │   │   ├── print-less.less
 │   │   └── style-less.less
 │   │
-│   └── sass/
+│   └── scss/
 │       ├── _375up.scss
 │       ├── _425up.scss
 │       ├── _480up.scss
@@ -106,6 +110,7 @@ dist/
 │       ├── _1560up.scss
 │       ├── _1920up.scss
 │       ├── _2560up.scss
+│       ├── _3840up.scss
 │       ├── _base.scss
 │       ├── _mixins.scss
 │       ├── _notouch.scss
@@ -185,12 +190,13 @@ dist/
 │   │   ├── _1560up.less
 │   │   ├── _1920up.less
 │   │   ├── _2560up.less
+│   │   ├── _3840up.less
 │   │   ├── _base.less
 │   │   ├── _mixins.less
 │   │   ├── _notouch.less
 │   │   └── _print.less
 │   │
-│   └── sass/
+│   └── scss/
 │       ├── _375up.scss
 │       ├── _425up.scss
 │       ├── _480up.scss
@@ -209,6 +215,7 @@ dist/
 │       ├── _1560up.scss
 │       ├── _1920up.scss
 │       ├── _2560up.scss
+│       ├── _3840up.scss
 │       ├── _base.scss
 │       ├── _mixins.scss
 │       ├── _notouch.scss
@@ -228,7 +235,7 @@ ___
 
 One of the major advantages of using Mochi is that it comes packed with many useful 3rd-party libraries to help you develop your application rapidly, and with less effort than would be necessary with just the standard Bootstrap distribution. The following 3rd-party libraries are included with our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest):
 
-| Library           | Version | Developer Website                               |
+| Project           | Version | Developer Website                               |
 |-------------------|---------|-------------------------------------------------|
 | Animate.less      | 2.0     | https://animateforless.com/                     |
 | Basil.js          | 0.4.11  | https://github.com/Wisembly/basil.js            |
@@ -247,17 +254,87 @@ One of the major advantages of using Mochi is that it comes packed with many use
 | Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string  |
 
 ___
+# Sass CSS Preprocessor Support
+Unlike its predecessor, Mochi 2.0 includes full support for the [Sass](https://sass-lang.com/) CSS preprocessor language. As a result, the standard distribution package now includes all the [Bootstrap project source Sass files](https://github.com/codeworksdev/mochi-2.0/tree/main/dist/bootstrap/scss) to take advantage of the variables, maps, mixins, and functions necessary to build faster and customize your project with greater ease.
+
+## What is Sass?
+From [Wikipedia](https://en.wikipedia.org/wiki/Sass_(style_sheet_language)), [Sass](https://sass-lang.com/) (short for syntactically awesome style sheets) is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). [SassScript](https://www.rubydoc.info/gems/sass/Sass/Script) is the scripting language itself.
+
+There are many applications that will get you up and running with Sass in a few minutes for Mac, Windows, and Linux. You can download most of the applications for free but a few of them are paid apps. More on that [here](https://sass-lang.com/install/).
+
+## Predefined Media Queries
+Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) are defined in the folder **`dist/frontend/scss`**. Each media query is assigned a dedicated Sass import file for better organization, and of course, they're all completely optional. Each media query assumes the standard (96dpi) screen resolution.
+
+| 96dpi (1dppx)   | Typical Device                | File (96dpi)   |
+|-----------------|-------------------------------|----------------|
+| <= 374px (base) | Phone (legacy)                | `_base.scss`   |
+| >= 375px        | Phone (legacy)                | `_375up.scss`  |
+| >= 425px        | Phone (large)                 | `_425up.scss`  |
+| >= 480px        | Phone (large), Tablet (small) | `_480up.scss`  |
+| >= 576px        | Phone (large), Tablet (small) | `_576up.scss`  |
+| >= 750px        | Tablet (small)                | `_750up.scss`  |
+| >= 768px        | Tablet (small)                | `_768up.scss`  |
+| >= 970px        | Tablet (medium)               | `_970up.scss`  |
+| >= 992px        | Tablet (medium)               | `_992up.scss`  |
+| >= 1020px       | Tablet (large)                | `_1020up.scss` |
+| >= 1024px       | Tablet (large)                | `_1024up.scss` |
+| >= 1170px       | Desktop/Laptop/Tablet         | `_1170up.scss` |
+| >= 1200px       | Desktop/Laptop/Tablet         | `_1200up.scss` |
+| >= 1400px       | Desktop/Laptop (HD)           | `_1400up.scss` |
+| >= 1440px       | Desktop/Laptop (HD)           | `_1440up.scss` |
+| >= 1560px       | Desktop (HD)                  | `_1560up.scss` |
+| >= 1920px       | Desktop (HD)                  | `_1920up.scss` |
+| >= 2560px       | Desktop (2K)                  | `_2560up.scss` |
+| >= 3840px       | Desktop (4K)                  | `_3840up.scss` |
+
+## Special Sass Imports
+In addition to the media breakpoints listed above, the following import files are also included:
+
+| File                  | Description                                                                                                                                                              |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `_base.scss`          | Base styles for all media queries (i.e., all devices).                                                                                                                   |
+| `_print.scss`         | Styles for printed media. Imports Bootstrap compiled CSS.                                                                                                                |
+| `_notouch.scss`       | Styles for non-touch enabled devices (e.g., desktops).                                                                                                                   |
+| `_mixins.scss`        | Define your own global Sass mixins, variables, and functions.                                                                                                            |
+| **`print-sass.scss`** | Generates CSS file for [printed media](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types).                    |
+| **`style-sass.scss`** | Generates CSS file for all media types other than [print](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types). |
+
+_**Note:** When importing the folder **`dist/frontend/scss`** into your Sass compiler please make sure only the **`print-sass.scss`** and **`style-sass.sccss`** files are compiled to CSS, and not the files prefixed with an underscore._
+
+## Predefined Mixins
+Some custom Sass mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/scss/_mixins.scss`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/scss/_mixins.scss) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest).
+
+_**Note:** We've included an empty mixins file at **`dist/frontend/scss/_mixins.scss`**. If you'd like to define your own mixins in your project, we strongly recommend editing this empty file instead of the predefined mixins file inside the **`dist/mochi/scss`** folder._
+
+## Output CSS Files
+Mochi 2.0 imports final (compiled) CSS files generated by your preferred [Sass](https://sass-lang.com/) preprocessor. Below is a snippet showing how the files are included within your project. You'll notice there are [Less.js](http://lesscss.org/) generated CSS files included as well. Keep scrolling to learn more.
+
+```html
+...
+    <link media="all"   rel="stylesheet" href="frontend/css/style-sass.css">
+    <link media="all"   rel="stylesheet" href="frontend/css/style-less.css">
+    <link media="print" rel="stylesheet" href="frontend/css/print-sass.css">
+    <link media="print" rel="stylesheet" href="frontend/css/print-less.css">
+</head>
+```
+
+| File                          | Description                                                                                                                                                    |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `frontend/css/print-sass.css` | CSS file for [printed media](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types).                    |
+| `frontend/css/style-sass.css` | CSS file for all media types other than [print](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types). |
+
+___
 # Less.js CSS Preprocessor Support
 
-Mochi makes heavy use of [Less.js](http://lesscss.org/) to allow you to rapidly construct your CSS stylesheets within the many [predefined media queries](#predefined-media-queries) supported by our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest).
+In addition to Sass, Mochi 2.0 makes heavy use of [Less.js](http://lesscss.org/) to allow you to rapidly construct your CSS stylesheets within the many [predefined media queries](#predefined-media-queries) supported by our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest).
 
 ## What is Less.js?
 [Less.js](http://lesscss.org/) is a CSS preprocessor that extends the CSS language, adding features that introduce variables, mixins, functions, and many other techniques commonly found in popular scripting languages. This allows you to make CSS that is more maintainable, themable and extendable.
 
-Less.js runs inside [Node](https://nodejs.org/), in the browser and inside [Rhino](https://mozilla.github.io/rhino/). There are also many  [3rd-party tools](http://lesscss.org/usage/index.html#guis-for-less)  available that allow you to compile your files and watch for changes. The latter is the way to go if you want to get up and running quickly.
+Less.js runs inside [Node](https://nodejs.org/), in the browser and inside [Rhino](https://mozilla.github.io/rhino/). There are also many [3rd-party tools](http://lesscss.org/usage/index.html#guis-for-less)  available that allow you to compile your files and watch for changes. The latter is the way to go if you want to get up and running quickly.
 
 ## Predefined Media Queries
-Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) are defined in the folder **`dist/frontend/less`**. Each media query is assigned a dedicated Less import file for better organization, and of course, they're all completely optional. As a bonus, we've also included [retina display (192dpi) media queries](https://css-tricks.com/snippets/css/retina-display-media-query/) to compliment the standard (96dpi) media queries.
+Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) are defined in the folder **`dist/frontend/less`**. Each media query is assigned a dedicated Less import file for better organization, and of course, they're all completely optional. Each media query assumes the standard (96dpi) screen resolution.
 
 | 96dpi (1dppx)   | Typical Device                | File (96dpi)   |
 |-----------------|-------------------------------|----------------|
@@ -279,28 +356,46 @@ Predefined [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/
 | >= 1560px       | Desktop (HD)                  | `_1560up.less` |
 | >= 1920px       | Desktop (HD)                  | `_1920up.less` |
 | >= 2560px       | Desktop (2K)                  | `_2560up.less` |
+| >= 3840px       | Desktop (4K)                  | `_3840up.less` |
 
 ## Special Less Imports
 In addition to the media breakpoints listed above, the following import files are also included:
 
-| File             | Description                                                                                                                                                          |
-|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `_base.less`     | Defines base styles for all media queries (i.e., all devices).                                                                                                       |
-| `_print.less`    | Used for printed media. Imports Bootstrap CSS.                                                                                                                       |
-| `_notouch.less`  | Used for non-touch enabled devices (e.g., desktops).                                                                                                                 |
-| `_mixins.less`   | Define your own global Less mixins, variables, and styles.                                                                                                           |
-| **`print.less`** | Generates CSS file for [printed media](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Targeting_media_types).                    |
-| **`style.less`** | Generates CSS file for all media types other than [print](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Targeting_media_types). |
+| File                  | Description                                                                                                                                                              |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `_base.less`          | Base styles for all media queries (i.e., all devices).                                                                                                                   |
+| `_print.less`         | Styles for printed media.                                                                                                                                                |
+| `_notouch.less`       | Styles for non-touch enabled devices (e.g., desktops).                                                                                                                   |
+| `_mixins.less`        | Define your own global Less mixins, variables, and functions.                                                                                                            |
+| **`print-less.less`** | Generates CSS file for [printed media](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types).                    |
+| **`style-less.less`** | Generates CSS file for all media types other than [print](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types). |
 
-_**Note:** When importing the folder **`dist/frontend/less`** into your Less.js compiler please make sure only the **`print.less`** and **`style.less`** files are compiled to CSS, and not the files prefixed with an underscore._
+_**Note:** When importing the folder **`dist/frontend/less`** into your Less.js compiler please make sure only the **`print-less.less`** and **`style-less.less`** files are compiled to CSS, and not the files prefixed with an underscore._
 
 ## Predefined Mixins
-Some useful Less mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/less/_mixins.less`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/less/_mixins.less) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest).
+Some custom Less mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/less/_mixins.less`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/less/_mixins.less) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest).
 
-_**Note:** We've included an empty mixins file at **`dist/frontend/_mixins.less`**. If you'd like to define your own mixins in your project, we strongly recommend editing this empty file instead of the predefined mixins file inside the **`dist/mochi`** folder._
+_**Note:** We've included an empty mixins file at **`dist/frontend/less/_mixins.less`**. If you'd like to define your own mixins in your project we strongly recommend editing this empty file instead of the predefined mixins file inside the **`dist/mochi/less`** folder._
 
 ## Animate.less
-[Animate.less](http://animateforless.com/) is a powerful [CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) framework for animating HTML elements in a [script-less](https://github.com/codeworksdev/animate.less#script-less-animations) format. Mochi automatically imports this library into your project, allowing you to take full advantage of the many predefined animations already included. You can even build your own animations with this framework! More information [here](http://animateforless.com/).
+[Animate.less](http://animateforless.com/) is a powerful [CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) framework for animating HTML elements in a [script-less](https://github.com/codeworksdev/animate.less#script-less-animations) format. Mochi automatically imports this library into your project, allowing you to take full advantage of the many predefined animations already included. You can even build your own animations with this framework! More on that [here](http://animateforless.com/).
+
+## Output CSS Files
+Mochi 2.0 imports final (compiled) CSS files generated by your preferred [Less.js](http://lesscss.org/) preprocessor. Below is a snippet showing how the files are included within your project. It's important to note the order in which the CSS files are included. This order is important, since the Sass generated files contain compiled CSS from [Bootstrap](https://getbootstrap.com/), the [jQuery UI](https://jqueryui.com/) library, and the [Animate.less](https://animateforless.com/) project.
+
+```html
+...
+    <link media="all"   rel="stylesheet" href="frontend/css/style-sass.css">
+    <link media="all"   rel="stylesheet" href="frontend/css/style-less.css">
+    <link media="print" rel="stylesheet" href="frontend/css/print-sass.css">
+    <link media="print" rel="stylesheet" href="frontend/css/print-less.css">
+</head>
+```
+
+| File                          | Description                                                                                                                                                    |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `frontend/css/print-less.css` | CSS file for [printed media](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types).                    |
+| `frontend/css/style-less.css` | CSS file for all media types other than [print](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#targeting_media_types). |
 
 ___
 # Caching System
