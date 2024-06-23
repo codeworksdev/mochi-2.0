@@ -21,8 +21,10 @@ bootstrap/css/bootstrap-utilities.css
 bootstrap/css/bootstrap-utilities.min.css
 bootstrap/css/bootstrap-utilities.rtl.css
 bootstrap/css/bootstrap-utilities.rtl.min.css
-frontend/css/print.css
-frontend/css/style.css
+frontend/css/print-less.css
+frontend/css/print-sass.css
+frontend/css/style-less.css
+frontend/css/style-sass.css
 mochi/css/helpers/animate.less/dist/css/animate.css
 mochi/js/jquery/ui/jquery-ui.css
 mochi/js/jquery/ui/jquery-ui.min.css
@@ -38,8 +40,10 @@ bootstrap/js/bootstrap.esm.js
 bootstrap/js/bootstrap.esm.min.js
 bootstrap/js/bootstrap.js
 bootstrap/js/bootstrap.min.js
+bootstrap/scss/tests/jasmine.js
+bootstrap/scss/tests/sass-true/register.js
+bootstrap/scss/tests/sass-true/runner.js
 frontend/js/onload.js
-mochi/js/jquery/jquery.min.js
 mochi/js/jquery/ui/external/jquery/jquery.js
 mochi/js/jquery/ui/jquery-ui.js
 mochi/js/jquery/ui/jquery-ui.min.js
