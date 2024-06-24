@@ -7,5 +7,5 @@ This plugin uses the **[jQuery UI Dialog Widget](https://jqueryui.com/dialog/)**
 
 ## CHANGELOG
 
-> **1.0** (2024-06-23)
+> **1.0** (2024-06-24)
 > - Initial release.
