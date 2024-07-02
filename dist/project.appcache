@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v1.0 2024-06-24
+# v1.0 2024-07-02
 
 # HTML files should not be included here
 CACHE:
@@ -60,6 +60,10 @@ sw.js
 # PNG/JPEG/GIF
 frontend/img/brand/launcher-icon-1x.png
 frontend/img/brand/launcher-icon-4x.png
+frontend/img/brand/screenshot_1n.png
+frontend/img/brand/screenshot_1w.png
+frontend/img/brand/screenshot_2n.png
+frontend/img/brand/screenshot_2w.png
 mochi/js/jquery/ui/images/ui-icons_444444_256x240.png
 mochi/js/jquery/ui/images/ui-icons_555555_256x240.png
 mochi/js/jquery/ui/images/ui-icons_777620_256x240.png

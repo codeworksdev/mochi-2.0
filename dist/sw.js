@@ -2,7 +2,7 @@
 {
     var CACHE = {
         VERSION : 1.0,
-        DATE : '2024-06-24',
+        DATE : '2024-07-02',
         NAME : 'mochi-sw-cache-master',
         LIST : [
             './',
@@ -37,6 +37,10 @@
             'frontend/css/style-sass.css',
             'frontend/img/brand/launcher-icon-1x.png',
             'frontend/img/brand/launcher-icon-4x.png',
+            'frontend/img/brand/screenshot_1n.png',
+            'frontend/img/brand/screenshot_1w.png',
+            'frontend/img/brand/screenshot_2n.png',
+            'frontend/img/brand/screenshot_2w.png',
             'frontend/js/onload.js',
             'index.html',
             'mochi/css/helpers/animate.less/dist/css/animate.css',
