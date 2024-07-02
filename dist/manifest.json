@@ -1,11 +1,20 @@
 {
-    "name"             : "Mochi",
-    "short_name"       : "Mochi",
-    "start_url"        : "index.html",
+    "name"             : "Mochi 2.0",
+    "short_name"       : "Mochi 2.0",
+    "start_url"        : "index.html?utm_medium=PWA&utm_source=launcher",
     "display"          : "standalone",
-    "orientation"      : "portrait",
-    "theme_color"      : "#f3f3f3",
-    "background_color" : "#f3f3f3",
+    "orientation"      : "any",
+    "theme_color"      : "#21cfc3",
+    "background_color" : "#fff",
+    "description"      : "Front-end framework for developing responsive, mobile-first projects on the web or offline.",
+    "lang"             : "en",
+
+    "categories": [
+        "websites",
+        "productivity",
+        "utilities"
+        ],
+
     "icons" : [
         {
             "src"   : "frontend/img/brand/launcher-icon-1x.png",
@@ -16,6 +25,32 @@
             "src"   : "frontend/img/brand/launcher-icon-4x.png",
             "sizes" : "192x192",
             "type"  : "image/png"
+        }
+        ],
+    "screenshots": [
+        {
+            "src": "frontend/img/brand/screenshot_1n.png",
+            "type": "image/png",
+            "sizes": "540x720",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "frontend/img/brand/screenshot_2n.png",
+            "type": "image/png",
+            "sizes": "540x720",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "frontend/img/brand/screenshot_1w.png",
+            "type": "image/png",
+            "sizes": "1024x593",
+            "form_factor": "wide"
+        },
+        {
+            "src": "frontend/img/brand/screenshot_2w.png",
+            "type": "image/png",
+            "sizes": "1024x593",
+            "form_factor": "wide"
         }
         ]
 }
