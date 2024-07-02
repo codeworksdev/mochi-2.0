@@ -1,5 +1,5 @@
 /*!
- * Mochi v2.0.0 (https://github.com/codeworksdev/mochi-2.0)
+ * Mochi v2.0.1 (https://github.com/codeworksdev/mochi-2.0)
  * Copyright (c) 2014-2024 CODEWORKS <support@codeworksnyc.com>
  * Licensed under the MIT license
  */
@@ -262,15 +262,6 @@ Mochi.prototype =
                         console.error('ServiceWorker registration failed: '+err)
                         }
                     );
-        }
-        else
-        {
-            if (!this.__head.find('link[rel="icon"]').length)
-            {
-                this.__head.append(
-                    '<link media="all" rel="icon" href="frontend/img/brand/launcher-icon-1x.png">'
-                    );
-            }
         }
 
         if (
