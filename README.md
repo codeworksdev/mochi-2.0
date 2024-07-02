@@ -59,7 +59,11 @@ dist/
 │   ├── img/
 │   │   └── brand/
 │   │       ├── launcher-icon-1x.png
-│   │       └── launcher-icon-4x.png
+│   │       ├── launcher-icon-4x.png
+│   │       ├── screenshot_1n.png
+│   │       ├── screenshot_1w.png
+│   │       ├── screenshot_2n.png
+│   │       └── screenshot_2w.png
 │   │
 │   ├── js/
 │   │   └── onload.js
