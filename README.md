@@ -1,7 +1,7 @@
 # Mochi 2.0
 _Front-end framework for developing responsive, mobile-first projects on the web or offline._
 
-> [**v2.0.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
+> [**v1.6.2**](https://github.com/codeworksdev/mochi/releases/latest) &nbsp;➜&nbsp;  [**v2.0.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
 Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of enhanced features with a strong focus on offline web applications, and without all the limitations. This is achieved by including and maintaining offline versions of popular open-source projects that have been out in the wild for years.
 
