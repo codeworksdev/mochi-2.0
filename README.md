@@ -11,7 +11,7 @@ Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTM
 ## Usage
 To use Mochi 2.0 simply [download the latest distribution package](https://github.com/codeworksdev/mochi-2.0/releases/latest) and extract the contents of the included **`dist`** folder to the root of your website directory (e.g., **`/var/www/html`** in some systems). That's it! You now have a fully functioning and ready-to-deploy Bootstrap-powered HTML5 boilerplate web application installed on your website. Mochi 2.0 is designed to run either online or offline, depending on your desired configuration. More on that later.
 
-The included HTML5 starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/index.html)) is a great way to get started with Mochi 2.0. Since it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML5/CSS markup according to the latest standards.
+The included HTML5 starter template ([**`dist/index.html`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/index.html)) is a great way to get started with Mochi 2.0. Since it's powered by Bootstrap you can do a bunch of things right out of the box, and with minimal effort. Check out the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn more about how to structure your HTML5/CSS markup according to the latest standards.
 
 ## What's Included
 
@@ -266,8 +266,8 @@ In addition to the standard libraries above Mochi 2.0 also comes packaged with s
 
 | Plugin    | Version                                                                                                | Description                  |
 |-----------|--------------------------------------------------------------------------------------------------------|------------------------------|
-| Dialog    | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/dialog/CHANGELOG.md) | Dialog UI extension.         |
-| Veeva CLM | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)  | Add Veeva CLM compatibility. |
+| Dialog    | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/CHANGELOG.md) | Dialog UI extension.         |
+| Veeva CLM | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/CHANGELOG.md)  | Add Veeva CLM compatibility. |
 
 **Note:** Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) for more information on how to extend Mochi 2.0 with your own plugins and/or features.
 
@@ -320,7 +320,7 @@ In addition to the media breakpoints listed above, the following import files ar
 _**Note:** When importing the folder **`dist/frontend/scss`** into your Sass compiler please make sure only the **`print-sass.scss`** and **`style-sass.sccss`** files are compiled to CSS, and not the files prefixed with an underscore._
 
 ## Predefined Mixins
-Some custom Sass mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/scss/_mixins.scss`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/scss/_mixins.scss) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist).
+Some custom Sass mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/scss/_mixins.scss`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/scss/_mixins.scss) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist).
 
 _**Note:** We've included an empty mixins file at **`dist/frontend/scss/_mixins.scss`**. If you'd like to define your own mixins in your project, we strongly recommend editing this empty file instead of the predefined mixins file inside the **`dist/mochi/scss`** folder._
 
@@ -391,7 +391,7 @@ In addition to the media breakpoints listed above, the following import files ar
 _**Note:** When importing the folder **`dist/frontend/less`** into your Less.js compiler please make sure only the **`print-less.less`** and **`style-less.less`** files are compiled to CSS, and not the files prefixed with an underscore._
 
 ## Predefined Mixins
-Some custom Less mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/less/_mixins.less`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/less/_mixins.less) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist).
+Some custom Less mixins are included to help streamline development of CSS in your project. We recommend having a look at [**`dist/mochi/less/_mixins.less`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/less/_mixins.less) to see what's included in our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist).
 
 _**Note:** We've included an empty mixins file at **`dist/frontend/less/_mixins.less`**. If you'd like to define your own mixins in your project we strongly recommend editing this empty file instead of the predefined mixins file inside the **`dist/mochi/less`** folder._
 
@@ -417,13 +417,13 @@ Mochi 2.0 imports final (compiled) CSS files generated by your preferred [Less.j
 
 ___
 # Caching System
-Mochi 2.0 includes a fully functional [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (in [**`dist/sw.js`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/sw.js)) for developing high-performance websites and offline apps, complete with push notifications and automated updates. It's disabled by default, but you can easily enable it using the [Mochi 2.0 API](#api). More information about the standard Service Worker API [here](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
+Mochi 2.0 includes a fully functional [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (in [**`dist/sw.js`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/sw.js)) for developing high-performance websites and offline apps, complete with push notifications and automated updates. It's disabled by default, but you can easily enable it using the [Mochi 2.0 API](#api). More information about the standard Service Worker API [here](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
 
-_**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) is still supported (in [**`dist/project.appcache`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/project.appcache)), but we strongly discourage using it, since it has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Be aware that this feature may cease to work at any time._
+_**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) is still supported (in [**`dist/project.appcache`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/project.appcache)), but we strongly discourage using it, since it has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Be aware that this feature may cease to work at any time._
 
 ___
 # Apache Server Configs
-The [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file ([**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/.htaccess)) is a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
+The [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file ([**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/.htaccess)) is a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
 
 _**Note:** You can safely delete this file without issue if it doesn't apply to your server or project requirements._
 
@@ -431,7 +431,7 @@ ___
 # API
 
 ## Starter Template
-Mochi 2.0 includes a simple JavaScript starter template (in [**`dist/frontend/js/onload.js`**](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/frontend/js/onload.js)) to help you tie everything together and get started on your project right away. Continue reading below to get familiar with the how the Mochi 2.0 API can help accelerate your app development.
+Mochi 2.0 includes a simple JavaScript starter template (in [**`dist/frontend/js/onload.js`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/frontend/js/onload.js)) to help you tie everything together and get started on your project right away. Continue reading below to get familiar with the how the Mochi 2.0 API can help accelerate your app development.
 
 ## Persistent Mochi 2.0 Instance
 First things first! After your web page is fully loaded and rendered the Mochi 2.0 instance will register itself as a standard JavaScript global variable called **`$m`**. This variable is defined within the [`Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) object scope, making it accessible by your entire application.
@@ -848,8 +848,8 @@ Mochi 2.0 comes preloaded with specialized, but optional, plugins (or scripts) t
 
 | Plugin                | Description                                                                                    | Links                                                                                                     |
 |-----------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| Dialog                | Enhanced dialog system powered by [jQuery UI](https://jqueryui.com/).                          | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/dialog/README.md) |
-| Veeva CLM Application | Adds [Veeva CLM](https://www.veeva.com/products/multichannel-crm/clm/) compatibility to Mochi. | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/README.md)  |
+| Dialog                | Enhanced dialog system powered by [jQuery UI](https://jqueryui.com/).                          | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/README.md) |
+| Veeva CLM Application | Adds [Veeva CLM](https://www.veeva.com/products/multichannel-crm/clm/) compatibility to Mochi. | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md)  |
 ___
 # Further Reading
 Because Mochi 2.0 is built with Bootstrap, learning to use it is as easy as digging into their official docs and mastering the awesome features provided by the framework. We encourage you to head on over to the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn like a pro. Happy coding!
