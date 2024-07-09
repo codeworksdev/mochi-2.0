@@ -6,17 +6,17 @@
 This plugin allows you to develop a **[Veeva Multichannel CRM](https://www.veeva.com/products/multichannel-crm/clm/)** within your Mochi 2.0 application while maintaining full compliance with Veeva standards. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special **[API calls](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** that interface directly with the Veeva Multichannel CRM platform.
 
 ## INSTALLATION
-To use Veeva.js in your app, you must drop two files as `<script>` imports in your Mochi 2.0 application (i.e., just before your `onload.js` is inlcuded). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
+To use Veeva.js in your app, you must drop two files as `<script>` imports in your Mochi 2.0 application (i.e., just before your `onload.js` is included). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
 
 **FILES**
-* mochi/js/plugins/veeva/dist/veeva-library.js
+* mochi/js/plugins/veeva/dist/ext/veeva-library.js
 * mochi/js/plugins/veeva/dist/veeva.js
 * mochi/js/plugins/veeva/dist/veeva.min.js
 
 ```html
 ...
         <script src="mochi/js/mochi.min.js"></script>
-        <script src="mochi/js/plugins/veeva/dist/veeva-library.js"></script>
+        <script src="mochi/js/plugins/veeva/dist/ext/veeva-library.js"></script>
         <script src="mochi/js/plugins/veeva/dist/veeva.min.js"></script>
         <script src="frontend/js/onload.js"></script>
     </body>

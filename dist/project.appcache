@@ -52,9 +52,9 @@ mochi/js/mochi.js
 mochi/js/mochi.min.js
 mochi/js/plugins/dialog/dist/dialog.js
 mochi/js/plugins/dialog/dist/dialog.min.js
+mochi/js/plugins/veeva/dist/ext/veeva-library.js
 mochi/js/plugins/veeva/dist/veeva.js
 mochi/js/plugins/veeva/dist/veeva.min.js
-mochi/js/plugins/veeva/dist/veeva-library.js
 sw.js
 
 # PNG/JPEG/GIF

@@ -167,9 +167,11 @@ dist/
 │   │   │   │
 │   │   │   └── veeva/
 │   │   │       └── dist/
+│   │   │           ├── ext/
+│   │   │           │   └── veeva-library.js
+│   │   │           │
 │   │   │           ├── veeva.js
-│   │   │           ├── veeva.min.js
-│   │   │           └── veeva-library.js
+│   │   │           └── veeva.min.js
 │   │   │
 │   │   ├── libraries.js
 │   │   ├── mochi.js
