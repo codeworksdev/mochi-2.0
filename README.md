@@ -269,7 +269,7 @@ In addition to the standard libraries above Mochi 2.0 also comes packaged with s
 | Dialog    | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/dialog/CHANGELOG.md) | Dialog UI extension.         |
 | Veeva CLM | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)  | Add Veeva CLM compatibility. |
 
-**Note:** Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) for more information on how to extend Mochi 2.0 with your own plugins and/or features. Happy coding!
+**Note:** Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) for more information on how to extend Mochi 2.0 with your own plugins and/or features.
 
 ___
 # Sass CSS Preprocessor Support
