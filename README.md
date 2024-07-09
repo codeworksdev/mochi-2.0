@@ -260,6 +260,18 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 | Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string |
 
 ___
+# Included Plugins
+
+In addition to the standard libraries above Mochi 2.0 also comes packaged with special plugins designed to extend its capabilities. These extensions are completely optional and are safe to remove from your production project without issues. The following Mochi 2.0 plugins are included with our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist):
+
+| Plugin    | Version                                                                                                | Description                  |
+|-----------|--------------------------------------------------------------------------------------------------------|------------------------------|
+| Dialog    | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/dialog/CHANGELOG.md) | Dialog UI extension.         |
+| Veeva CLM | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/master/dist/mochi/js/plugins/veeva/CHANGELOG.md)  | Add Veeva CLM compatibility. |
+
+**Note:** Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) for more information on how to extend Mochi 2.0 with your own plugins and/or features. Happy coding!
+
+___
 # Sass CSS Preprocessor Support
 Unlike its predecessor, Mochi 2.0 includes full support for the [Sass](https://sass-lang.com/) CSS preprocessor language. As a result, the [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist) now includes all the [Bootstrap project source Sass files](https://github.com/codeworksdev/mochi-2.0/tree/main/dist/bootstrap/scss) to take advantage of the variables, maps, mixins, and functions necessary to build faster and customize your project with greater ease.
 
