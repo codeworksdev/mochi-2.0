@@ -6,22 +6,20 @@
 Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of enhanced features with a strong focus on offline web applications, and without all the limitations. This is achieved by including and maintaining offline versions of popular open-source projects that have been out in the wild for years.
 
 ---
-
 > ## Table Of Contents
-> * **[What is Bootstrap?](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#what-is-bootstrap)**
-> * **[Usage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#usage)**
-> * **[What's Included](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#whats-included)**
-> * **[Included Libraries](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-libraries)**
-> * **[Included Plugins](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-plugins)**
-> * **[Sass CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sass-css-preprocessor-support)**
-> * **[Less.js CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#lessjs-css-preprocessor-support)**
-> * **[Caching System](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#caching-system)**
-> * **[Apache Server Configs](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#apache-server-configs)**
-> * **[API](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#api)**
-> * **[Extending Mochi](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi)**
-> * **[Further Reading](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#further-reading)**
-> * **[License](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#license)**
-
+> * **[What is Bootstrap?](#what-is-bootstrap)**
+> * **[Usage](#usage)**
+> * **[What's Included](#whats-included)**
+> * **[Included Libraries](#included-libraries)**
+> * **[Included Plugins](#included-plugins)**
+> * **[Sass CSS Preprocessor Support](#sass-css-preprocessor-support)**
+> * **[Less.js CSS Preprocessor Support](#lessjs-css-preprocessor-support)**
+> * **[Caching System](#caching-system)**
+> * **[Apache Server Configs](#apache-server-configs)**
+> * **[API](#api)**
+> * **[Extending Mochi](#extending-mochi)**
+> * **[Further Reading](#further-reading)**
+> * **[License](#license)**
 ---
 
 ## What is Bootstrap?
@@ -283,7 +281,7 @@ ___
 
 In addition to the standard libraries above Mochi 2.0 also comes packaged with special plugins designed to extend its capabilities. These extensions are completely optional and are safe to remove from your production project without issues.
 
-Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) to learn more.
+Click [here](#extending-mochi) to learn more.
 
 ___
 # Sass CSS Preprocessor Support
