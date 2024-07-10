@@ -794,9 +794,9 @@ Several options (or flags) are supported to allow you to take full advantage of 
 | [`ENABLE_SERVICE_WORKER`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#enable_service_worker)                     | `bool`   | `false`                                                      |
 | [`LAZY_LOAD_PLUGINS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#lazy_load_plugins)                             | `array`  | `[]`                                                         |
 | [`SW_UPDATE_NOTIFICATIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_update_notifications)                 | `bool`   | `true`                                                       |
-| [`SW_UPDATE_NOTIFICATIONS_OPTIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_update_notifications_options) | `object` | [`object`](https://github.com/codeworksdev/mochi-2.0/issues/195) |
+| [`SW_UPDATE_NOTIFICATIONS_OPTIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_update_notifications_options) | `object` | [`object`](https://github.com/codeworksdev/mochi-1.0/issues/195) |
 | [`SW_VERBOSE_SYNCING`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing)                           | `bool`   | `true`                                                       |
-| [`SW_VERBOSE_SYNCING_OPTIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing_options)           | `object` | [`object`](https://github.com/codeworksdev/mochi-2.0/issues/196) |
+| [`SW_VERBOSE_SYNCING_OPTIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing_options)           | `object` | [`object`](https://github.com/codeworksdev/mochi-1.0/issues/196) |
 
 > ## CLICK_NAME
 >
@@ -828,7 +828,7 @@ Several options (or flags) are supported to allow you to take full advantage of 
 
 > ## SW_UPDATE_NOTIFICATIONS_OPTIONS
 >
-> Only applies when [`SW_UPDATE_NOTIFICATIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_update_notifications) is `true`. More information [here](https://github.com/codeworksdev/mochi-2.0/issues/195).
+> Only applies when [`SW_UPDATE_NOTIFICATIONS`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_update_notifications) is `true`. More information [here](https://github.com/codeworksdev/mochi-1.0/issues/195).
 
 > ## SW_VERBOSE_SYNCING
 >
@@ -836,7 +836,7 @@ Several options (or flags) are supported to allow you to take full advantage of 
 
 > ## SW_VERBOSE_SYNCING_OPTIONS
 >
-> Only applies when [`SW_VERBOSE_SYNCING`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing) is `true`. More information [here](https://github.com/codeworksdev/mochi-2.0/issues/196).
+> Only applies when [`SW_VERBOSE_SYNCING`](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing) is `true`. More information [here](https://github.com/codeworksdev/mochi-1.0/issues/196).
 
 ## Properties
 The following properties are available in the persistent Mochi 2.0 instance (`$m`):
