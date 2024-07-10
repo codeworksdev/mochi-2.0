@@ -5,6 +5,25 @@
 
 Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTML5_Boilerplate) framework that runs on [Bootstrap](http://getbootstrap.com/), but adds tons of enhanced features with a strong focus on offline web applications, and without all the limitations. This is achieved by including and maintaining offline versions of popular open-source projects that have been out in the wild for years.
 
+---
+
+> ## Table Of Contents
+> * **[What is Bootstrap?](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#what-is-bootstrap)**
+> * **[Usage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#usage)**
+> * **[What's Included](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#whats-included)**
+> * **[Included Libraries](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-libraries)**
+> * **[Included Plugins](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-plugins)**
+> * **[Sass CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sass-css-preprocessor-support)**
+> * **[Less.js CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#lessjs-css-preprocessor-support)**
+> * **[Caching System](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#caching-system)**
+> * **[Apache Server Configs](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#apache-server-configs)**
+> * **[API](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#api)**
+> * **[Extending Mochi](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi)**
+> * **[Further Reading](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#further-reading)**
+> * **[License](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#license)**
+
+---
+
 ## What is Bootstrap?
 [Bootstrap](http://getbootstrap.com/) is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with powerful [Sass](https://sass-lang.com/) variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on [jQuery](https://jquery.com/). Mochi 2.0 takes this a step further by enabling functionality that would normally require many hours of code writing and head scratching. More information on Bootstrap [here](http://getbootstrap.com/).
 
@@ -262,14 +281,9 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 ___
 # Included Plugins
 
-In addition to the standard libraries above Mochi 2.0 also comes packaged with special plugins designed to extend its capabilities. These extensions are completely optional and are safe to remove from your production project without issues. The following Mochi 2.0 plugins are included with our [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist):
+In addition to the standard libraries above Mochi 2.0 also comes packaged with special plugins designed to extend its capabilities. These extensions are completely optional and are safe to remove from your production project without issues.
 
-| Plugin    | Version                                                                                                | Description                  |
-|-----------|--------------------------------------------------------------------------------------------------------|------------------------------|
-| Dialog    | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/CHANGELOG.md) | Dialog UI extension.         |
-| Veeva CLM | [1.0](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/CHANGELOG.md)  | Add Veeva CLM compatibility. |
-
-**Note:** Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) for more information on how to extend Mochi 2.0 with your own plugins and/or features.
+Click [here](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi) to learn more.
 
 ___
 # Sass CSS Preprocessor Support
