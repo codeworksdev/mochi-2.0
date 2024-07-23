@@ -857,6 +857,7 @@ The following properties are available in the persistent Mochi 2.0 instance (`$m
 
 ___
 # Extending Mochi
+No framework is complete without the ability to extend its capabilities. For that reason we've added a couple of plugins to the [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist). We recommend reviewing these plugins if you'd like to get started on adding your own enhancements.
 
 ## Plugins
 Mochi 2.0 comes preloaded with specialized, but optional, plugins (or scripts) that further enhance the capabilities of your app. Currently, there are two official plugins available for use right out of the box. More plugins will be added in future releases, but in the meantime, we recommend you review each plugin listed below to get familiar with how to write your own. Happy coding!
