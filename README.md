@@ -250,8 +250,6 @@ dist/
 ├── .htaccess
 ├── index.html
 ├── manifest.json
-├── offline.html
-├── project.appcache
 ├── robots.txt
 └── sw.js
 ```
@@ -434,7 +432,7 @@ ___
 # Caching System
 Mochi 2.0 includes a fully functional [Service Worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (in [**`dist/sw.js`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/sw.js)) for developing high-performance websites and offline apps, complete with push notifications and automated updates. It's disabled by default, but you can easily enable it using the [Mochi 2.0 API](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#api). More information about the standard Service Worker API [here](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API).
 
-_**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) is still supported (in [**`dist/project.appcache`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/project.appcache)), but we strongly discourage using it, since it has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Be aware that this feature may cease to work at any time._
+_**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache) is no longer supported (issue [#5](https://github.com/codeworksdev/mochi-2.0/issues/5))._
 
 ___
 # Apache Server Configs
