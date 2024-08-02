@@ -869,9 +869,10 @@ ___
 # Demos
 Don't forget to head over to the [demos](https://github.com/codeworksdev/mochi-2.0/tree/main/dist) folder to get familiar with everything Mochi 2.0 has to offer. The following demos are available in the latest [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist):
 
-| Module | Demo             | Description                                                                            | Path                                                                                        |
-|--------|------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| **API**    | Page/View States | Use the page/view states API to quickly alter the appearance and behavior of your app. | [`demo/api/states`](https://github.com/codeworksdev/mochi-2.0/tree/master/demos/api/states) |
+| Module     | Demo             | Description                                                                            | Path                                                                                                   |
+|------------|------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| **API**    | Page/View States | Use the page/view states API to quickly alter the appearance and behavior of your app. | [`demo/api/states`](https://github.com/codeworksdev/mochi-2.0/tree/master/demos/api/states)            |
+| **Plugin** | Dialog           | Quickly generate customizable dialog windows.                                          | [`README`](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/README.md) |
 
 ___
 # Further Reading
