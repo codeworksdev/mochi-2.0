@@ -68,7 +68,6 @@
             'mochi/js/plugins/veeva/dist/ext/veeva-library.js',
             'mochi/js/plugins/veeva/dist/veeva.js',
             'mochi/js/plugins/veeva/dist/veeva.min.js',
-            'sw.js',
             ],
         };
 
