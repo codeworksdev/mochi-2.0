@@ -15,12 +15,12 @@ Mochi 2.0 is a ready-to-go [HTML5 boilerplate](https://en.wikipedia.org/wiki/HTM
 > * **[What's Included](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#whats-included)**
 > * **[Included Libraries](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-libraries)**
 > * **[Included Plugins](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#included-plugins)**
-> * **[Sass CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sass-css-preprocessor-support)**
-> * **[Less.js CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#lessjs-css-preprocessor-support)**
+> * **[CSS Preprocessor Support](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sass-css-preprocessor-support)**
 > * **[Caching System](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#caching-system)**
 > * **[Apache Server Configs](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#apache-server-configs)**
 > * **[API](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#api)**
 > * **[Extending Mochi](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#extending-mochi)**
+> * **[Demos](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#demos)**
 > * **[Further Reading](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#further-reading)**
 > * **[License](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#license)**
 ---
@@ -864,6 +864,15 @@ Mochi 2.0 comes preloaded with specialized, but optional, plugins (or scripts) t
 |-----------------------|------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | Dialog                | Enhanced dialog system powered by [jQuery UI](https://jqueryui.com/).                          | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/README.md) |
 | Veeva CLM Application | Adds [Veeva CLM](https://www.veeva.com/products/multichannel-crm/clm/) compatibility to Mochi. | [Documentation](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md)  |
+
+___
+# Demos
+Don't forget to head over to the [demos](https://github.com/codeworksdev/mochi-2.0/tree/main/dist) folder to get familiar with everything Mochi 2.0 has to offer. The following demos are available in the latest [standard distribution package](https://github.com/codeworksdev/mochi-2.0/tree/main/dist):
+
+| Module | Demo             | Description                                                                            | Path                                                                                        |
+|--------|------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| **API**    | Page/View States | Use the page/view states API to quickly alter the appearance and behavior of your app. | [`demo/api/states`](https://github.com/codeworksdev/mochi-2.0/tree/master/demos/api/states) |
+
 ___
 # Further Reading
 Because Mochi 2.0 is built with Bootstrap, learning to use it is as easy as digging into their official docs and mastering the awesome features provided by the framework. We encourage you to head on over to the [official Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) to learn like a pro.
