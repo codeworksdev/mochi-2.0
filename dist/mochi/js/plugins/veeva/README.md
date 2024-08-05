@@ -5,29 +5,42 @@
 
 This plugin allows you to develop a **[Veeva Multichannel CRM](https://www.veeva.com/products/multichannel-crm/clm/)** within your Mochi 2.0 application while maintaining full compliance with Veeva standards. It fully utilizes the **[Veeva JS library](https://cdnmc1.vod309.com/clm/release/veeva-library.js)** and includes special **[API calls](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** that interface directly with the Veeva Multichannel CRM platform.
 
-## INSTALLATION
-To use Veeva.js in your app, you must drop two files as `<script>` imports in your Mochi 2.0 application (i.e., just before your `onload.js` is included). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
+---
+> ## Table Of Contents
+> * **[Installation](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#installation)**
+> * **[API](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#api)**
+> * **[Veeva Multichannel CRM](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#veeva-multichannel-crm)**
+> * **[License](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#license)**
+---
 
-**FILES**
-* mochi/js/plugins/veeva/dist/ext/veeva-library.js
-* mochi/js/plugins/veeva/dist/veeva.js
-* mochi/js/plugins/veeva/dist/veeva.min.js
+# Installation
+To use Veeva.js in your app you must drop two files as `<script>` imports in your Mochi 2.0 application (i.e., just before your `onload.js` is included). The plugin will register itself as `$m.veeva`, making it instantly accessible by the rest of your application.
 
-```html
-...
-        <script src="mochi/js/mochi.min.js"></script>
-        <script src="mochi/js/plugins/veeva/dist/ext/veeva-library.js"></script>
-        <script src="mochi/js/plugins/veeva/dist/veeva.min.js"></script>
-        <script src="frontend/js/onload.js"></script>
-    </body>
-</html>
-```
+## Files
+**Note:** All paths are relative to `dist/mochi/js/plugins/veeva/dist`
+
+| Path                 | Description            |
+|----------------------|------------------------|
+| ext/veeva-library.js | Veeva JS library       |
+| veeva.js             | Base module            |
+| veeva.min.js         | Base module (minified) |
+
+> **EXAMPLE**
+> ```html
+> ...
+>         <script src="mochi/js/mochi.min.js"></script>
+>         <script src="mochi/js/plugins/veeva/dist/ext/veeva-library.js"></script>
+>         <script src="mochi/js/plugins/veeva/dist/veeva.min.js"></script>
+>         <script src="frontend/js/onload.js"></script>
+>     </body>
+> </html>
+> ```
 
 ___
 # API
 
-## PUBLIC METHODS
-_**Note:** Scroll down to the [options](#section-options) section for a list of supported options._
+## Public Methods
+**Note:** Scroll down to the [options](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#options) section for a list of supported options.
 
 > ### getDefaultOptions
 > _object_ **$m.veeva.getDefaultOptions()**
@@ -41,7 +54,7 @@ _**Note:** Scroll down to the [options](#section-options) section for a list of 
 > _mixed_ **$m.veeva.getOptions(** _string_ **option_name** [, _bool_ get_defaults] [, _function_ iteratee] **)**
 > _object_ **$m.veeva.getOptions(** _function_ **iteratee** [, _bool_ get_defaults] **)**
 >
-> Allows you to retrieve the value of one or more [options](#section-options) supported by this plugin.
+> Allows you to retrieve the value of one or more [options](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#options) supported by this plugin.
 > * If no arguments are given, returns all user-defined options (i.e., not the defaults).
 > * If `option_name` is provided, returns the current value of that option. If the value is a `function`, gets the return value of that function.
 > * If `get_defaults` is set to `true`, returns all default options (and their associated values), or the assigned value of `option_name`, if provided.
@@ -85,14 +98,13 @@ _**Note:** Scroll down to the [options](#section-options) section for a list of 
 > _instance_ **$m.veeva.setOptions(** _object_ **options** [, _function_ callback] **)**
 > _instance_ **$m.veeva.setOptions(** _function_ **callback** **)**
 >
-> Allows you to define one or more `options` supported by this plugin. Any unsupported options are skipped. Scroll down to the [options](#section-options) section for a list of supported options and their default values.
+> Allows you to define one or more `options` supported by this plugin. Any unsupported options are skipped. Scroll down to the [options](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md#options) section for a list of supported options and their default values.
 > * If no arguments are given, resets all options to their default values.
 > * If `options` are provided, defines each option sequentially in the order given.
 > * If a `callback` function is provided, executes the function after all options are set. This function is called within the context of the `$m.veeva` instance, and receives `options` as the first parameter.
 > * If the first parameter is a `callback` function, the default `options` are assumed.
 
-<a id="section-options"></a>
-## OPTIONS
+## Options
 ```
 TYPE   | OPTION NAME                | DEFAULT VALUE
 ------------------------------------------------------------------------------------------------------------------
@@ -158,11 +170,11 @@ bool   | CLM_FORCE_VEEVA_NAVIGATION | false
 > Enabling this option tells the navigation functions to not attempt to auto-detect the platform in use (e.g., Veeva, Windows, web browser, etc.). This is helpful in situtations where the intended target platfom is not fully supported by this plugin. Otherwise, it's recommended to keep this option disabled.
 
 ___
-# MULTICHANNEL CRM DOCUMENTATION
+# Veeva Multichannel CRM
 Veeva publishes a JavaScript library to assist customers and their creative agencies with developing personalized and dynamic HTML5 content that interacts with the Veeva CRM database. This library is supported for CLM, Engage for Portals, CoBrowse, and MyInsights content creation.
 
 Please head on over to the official **[Multichannel CRM documentation](https://developer.veevacrm.com/doc/Content/CRM_topics/Veeva/clm-veeva.htm)** to take full advantage of all functions provided by the Veeva JS library.
 
 ___
-# LICENSE
-Veeva.js is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+# License
+This plugin is licensed under the MIT license. (http://opensource.org/licenses/MIT)
