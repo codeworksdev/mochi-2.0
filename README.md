@@ -1,7 +1,7 @@
 # Mochi 2.0
 ### Front-end framework for developing responsive, mobile-first projects on the web or offline.
 
-> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/releases/latest) &nbsp;➜&nbsp;  [**v2.0.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
+> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/releases/latest) &nbsp;➜&nbsp;  [**v2.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
 > [!TIP]
 > The previous generation **Mochi 1.0** is still available [here](https://github.com/codeworksdev/mochi-1.0).
