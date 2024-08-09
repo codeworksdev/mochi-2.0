@@ -270,11 +270,11 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 | Holder.js         | 2.9.7   | http://holderjs.com/                           |
 | iScroll           | 5.2.0   | https://github.com/cubiq/iscroll               |
 | jQuery            | 3.7.1   | http://jquery.com/                             |
-| jQuery UI         | 1.13.3  | https://jqueryui.com/                          |
+| jQuery UI         | 1.14.0  | https://jqueryui.com/                          |
 | Modernizr         | 3.6.0   | https://modernizr.com/                         |
 | Popper.js         | 2.11.8  | https://popper.js.org/docs/v2/                 |
 | sprintf-js        | 1.1.3   | https://www.npmjs.com/package/sprintf-js       |
-| Underscore.js     | 1.13.6  | http://underscorejs.org/                       |
+| Underscore.js     | 1.13.7  | http://underscorejs.org/                       |
 | Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string |
 
 ___
