@@ -436,7 +436,7 @@ _**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozi
 
 ___
 # Apache Server Configs
-The [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file ([**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/.htaccess)) is a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
+If you're using the [Apache](https://httpd.apache.org/) HTTP server the included [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file (in [**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/.htaccess)) contains a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
 
 _**Note:** You can safely delete this file without issue if it doesn't apply to your server or project requirements._
 
