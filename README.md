@@ -873,6 +873,7 @@ Don't forget to head over to the [demos](https://github.com/codeworksdev/mochi-2
 |------------|------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **API**    | Page/View States | Use the page/view states API to quickly alter the appearance and behavior of your app. | [`demo/api/states`](https://github.com/codeworksdev/mochi-2.0/tree/master/demos/api/states)            |
 | **Plugin** | Dialog           | Quickly generate customizable dialog windows.                                          | [`README`](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/README.md) |
+| **Plugin** | Veeva            | Add Veeva CLM Compatibility.                                                           | [`README`](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md)  |
 
 ___
 # Further Reading
