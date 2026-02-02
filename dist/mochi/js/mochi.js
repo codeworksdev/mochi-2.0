@@ -1,6 +1,6 @@
 /*!
- * Mochi v2.1 (https://github.com/codeworksdev/mochi-2.0)
- * Copyright (c) 2014-2024 CODEWORKS <support@codeworksnyc.com>
+ * Mochi v2.1.1 (https://github.com/codeworksdev/mochi-2.0)
+ * Copyright (c) 2014-2026 CODEWORKS <support@codeworksnyc.com>
  * Licensed under the MIT license
  */
 $(document).ready(
@@ -788,8 +788,8 @@ Mochi.prototype =
             o = this.getOption('SW_VERBOSE_SYNCING_OPTIONS');
             d = this.getDefaultOption('SW_VERBOSE_SYNCING_OPTIONS');
             y = function(v){return (/^string|number$/.test(typeof v) && /\S/.test(v))};
-            t = $.trim( y(text) ? text : (y(o.text) ? o.text : d.text) );
-            i = $.trim( y(icon) ? icon : (y(o.icon) ? o.icon : d.icon) );
+            t = ( y(text) ? text : (y(o.text) ? o.text : d.text) ).trim();
+            i = ( y(icon) ? icon : (y(o.icon) ? o.icon : d.icon) ).trim();
             s = Boolean(arguments.length < 3 ? o.spin : spin);
 
             this.__body.append(
@@ -830,10 +830,10 @@ Mochi.prototype =
             y = function(v){return (/^string|number$/.test(typeof v) && /\S/.test(v))};
             v = {};
 
-            v.buttonTitle       = $.trim( y( buttonTitle       ) ? buttonTitle       : ( y(o.buttonTitle)       ? o.buttonTitle       : d.buttonTitle       ));
-            v.dialogButtonTitle = $.trim( y( dialogButtonTitle ) ? dialogButtonTitle : ( y(o.dialogButtonTitle) ? o.dialogButtonTitle : d.dialogButtonTitle ));
-            v.dialogContent     = $.trim( y( dialogContent     ) ? dialogContent     : ( y(o.dialogContent)     ? o.dialogContent     : d.dialogContent     ));
-            v.dialogTitle       = $.trim( y( dialogTitle       ) ? dialogTitle       : ( y(o.dialogTitle)       ? o.dialogTitle       : d.dialogTitle       ));
+            v.buttonTitle       = ( y( buttonTitle       ) ? buttonTitle       : ( y(o.buttonTitle)       ? o.buttonTitle       : d.buttonTitle       ) ).trim();
+            v.dialogButtonTitle = ( y( dialogButtonTitle ) ? dialogButtonTitle : ( y(o.dialogButtonTitle) ? o.dialogButtonTitle : d.dialogButtonTitle ) ).trim();
+            v.dialogContent     = ( y( dialogContent     ) ? dialogContent     : ( y(o.dialogContent)     ? o.dialogContent     : d.dialogContent     ) ).trim();
+            v.dialogTitle       = ( y( dialogTitle       ) ? dialogTitle       : ( y(o.dialogTitle)       ? o.dialogTitle       : d.dialogTitle       ) ).trim();
 
             this.__body.append(
                   '<div id="'+k+'-container">'

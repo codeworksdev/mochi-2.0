@@ -1,7 +1,7 @@
 # Mochi 2.0
 ### Front-end framework for developing responsive, mobile-first projects on the web or offline.
 
-> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/) &nbsp;➜&nbsp;  [**v2.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
+> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/releases/latest) &nbsp;➜&nbsp;  [**v2.1.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
 > [!TIP]
 > The previous generation **Mochi 1.0** is still available [here](https://github.com/codeworksdev/mochi-1.0).
@@ -43,31 +43,17 @@ dist/
 │   ├── css/
 │   │   ├── bootstrap.css
 │   │   ├── bootstrap.min.css
-│   │   ├── bootstrap.rtl.css
-│   │   ├── bootstrap.rtl.min.css
-│   │   ├── bootstrap-grid.css
-│   │   ├── bootstrap-grid.min.css
-│   │   ├── bootstrap-grid.rtl.css
-│   │   ├── bootstrap-grid.rtl.min.css
-│   │   ├── bootstrap-reboot.css
-│   │   ├── bootstrap-reboot.min.css
-│   │   ├── bootstrap-reboot.rtl.css
-│   │   ├── bootstrap-reboot.rtl.min.css
-│   │   ├── bootstrap-utilities.css
-│   │   ├── bootstrap-utilities.min.css
-│   │   ├── bootstrap-utilities.rtl.css
-│   │   └── bootstrap-utilities.rtl.css
+│   │   └── ...
 │   │
 │   ├── js/
-│   │   ├── bootstrap.bundle.js
-│   │   ├── bootstrap.bundle.min.js
-│   │   ├── bootstrap.esm.js
-│   │   ├── bootstrap.esm.min.js
 │   │   ├── bootstrap.js
-│   │   └── bootstrap.min.js
+│   │   ├── bootstrap.min.js
+│   │   └── ...
+│   │
 │   │
 │   └── scss/
-│       └── bootstrap.scss
+│       ├── bootstrap.scss
+│       └── ...
 │
 ├── frontend/
 │   ├── css/
@@ -263,14 +249,14 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 |-------------------|---------|------------------------------------------------|
 | Animate.less      | 2.0     | https://animateforless.com/                    |
 | Basil.js          | 0.4.11  | https://github.com/Wisembly/basil.js           |
-| Bootstrap         | 5.3.3   | https://getbootstrap.com/                      |
-| Chart.js          | 4.4.3   | https://www.chartjs.org/                       |
+| Bootstrap         | 5.3.8   | https://getbootstrap.com/                      |
+| Chart.js          | 4.5.1   | https://www.chartjs.org/                       |
 | Clipboard.js      | 2.0.11  | https://clipboardjs.com/                       |
-| Font Awesome Free | 6.5.2   | https://fontawesome.com/                       |
-| Holder.js         | 2.9.7   | http://holderjs.com/                           |
+| Font Awesome Free | 7.1     | https://fontawesome.com/                       |
+| Holder.js         | 2.9.9   | http://holderjs.com/                           |
 | iScroll           | 5.2.0   | https://github.com/cubiq/iscroll               |
-| jQuery            | 3.7.1   | http://jquery.com/                             |
-| jQuery UI         | 1.14.0  | https://jqueryui.com/                          |
+| jQuery            | 4.0.0   | http://jquery.com/                             |
+| jQuery UI         | 1.14.2  | https://jqueryui.com/                          |
 | Modernizr         | 3.6.0   | https://modernizr.com/                         |
 | Popper.js         | 2.11.8  | https://popper.js.org/docs/v2/                 |
 | sprintf-js        | 1.1.3   | https://www.npmjs.com/package/sprintf-js       |
@@ -436,7 +422,7 @@ _**Note:** The (now deprecated) [HTML5 application cache](https://developer.mozi
 
 ___
 # Apache Server Configs
-If you're using the [Apache](https://httpd.apache.org/) HTTP server the included [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file (in [**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/.htaccess)) contains a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
+The [.htaccess](https://httpd.apache.org/docs/2.4/howto/htaccess.html) file ([**`dist/.htaccess`**](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/.htaccess)) is a collection of common server-side configurations that can help your web server improve your website's performance and security, while also ensuring that resources are served with the correct content-type and are accessible, if needed, even cross-domain. More information [here](https://github.com/h5bp/server-configs-apache).
 
 _**Note:** You can safely delete this file without issue if it doesn't apply to your server or project requirements._
 
@@ -873,7 +859,6 @@ Don't forget to head over to the [demos](https://github.com/codeworksdev/mochi-2
 |------------|------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **API**    | Page/View States | Use the page/view states API to quickly alter the appearance and behavior of your app. | [`demo/api/states`](https://github.com/codeworksdev/mochi-2.0/tree/master/demos/api/states)            |
 | **Plugin** | Dialog           | Quickly generate customizable dialog windows.                                          | [`README`](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/dialog/README.md) |
-| **Plugin** | Veeva            | Add Veeva CLM Compatibility.                                                           | [`README`](https://github.com/codeworksdev/mochi-2.0/blob/main/dist/mochi/js/plugins/veeva/README.md)  |
 
 ___
 # Further Reading

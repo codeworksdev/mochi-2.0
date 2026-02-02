@@ -5,5 +5,8 @@ This plugin allows you to develop a **[Veeva Multichannel CRM](https://www.veeva
 
 ## CHANGELOG
 
+> **1.1** (2026-02-02)
+> - Update: Veeva JS Library 242.0.200 from 241.0.100
+
 > **1.0** (2024-06-24)
 > - Initial release.

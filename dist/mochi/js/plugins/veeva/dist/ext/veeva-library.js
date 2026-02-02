@@ -1,4 +1,4 @@
-// Veeva JavaScript Library version 241.0.100
+// Veeva JavaScript Library version 242.0.200
 // http://veeva.com
 //
 // Copyright Â© 2024 Veeva Systems, Inc. All rights reserved.
@@ -659,7 +659,7 @@ com.veeva.clm = {
             com_veeva_clm_listPriceTypeId_getListPrice_Product_Account(testResult.listPriceRecordType);
 
     },
-
+    
     /////////////////////// Generate Dynamic Content ///////////////////////
     // Generate Content Dynamically for personalized version from a document template (DCT)
     // returns id of Veeva Content record upon success
@@ -685,31 +685,31 @@ com.veeva.clm = {
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
             return;
         }
-
+        
         ret = this.checkArgument("documentNum", documentNum);
         if(ret.success == false) {
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
             return;
         }
-
+        
         ret = this.checkArgument("account", account);
         if(ret.success == false) {
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
             return;
         }
-
+        
         ret = this.checkArgument("displayName", displayName);
         if(ret.success == false) {
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
             return;
         }
-
+        
         ret = this.checkArgument("values", values);
         if(ret.success == false) {
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
             return;
         }
-
+        
         parameters = {};
         parameters.vaultId = vaultId;
         parameters.documentNum = documentNum;
@@ -717,17 +717,17 @@ com.veeva.clm = {
         parameters.allowDownload = allowDownload === true ? true : false;
         parameters.displayName = displayName
         parameters.values = values
-
+        
         // add expiryPeriod, an optional parameter if it is a valid number
         if (!Number.isNaN(Number(expiryPeriod))) {
             parameters.expiryPeriod = expiryPeriod;
         }
-
+        
         window["com_veeva_clm_generateDynamicContent"] = function(result) {
             ret = com.veeva.clm.formatResult(result);
             com.veeva.clm.wrapResult("generateDynamicContent", callback, ret);
         };
-
+        
         request = "veeva:generateDynamicContent(" + JSON.stringify(parameters) + ")" + ",callback(com_veeva_clm_generateDynamicContent)";
         if(!com.veeva.clm.testMode) {
             com.veeva.clm.runAPIRequest(request);
@@ -768,55 +768,55 @@ com.veeva.clm = {
             com.veeva.clm.wrapResult("getApprovedDocument", callback, ret);
             return;
         }
-
-        // check version
-        this.getAppVersion(function(result) {
+		
+		// check version 
+		this.getAppVersion(function(result) {
           var isFeatureMultiProductSupported = false;
-          if (result.success) {
-            var version = result.Version;
-            // compare the version
-            var n = FEATURE_MULTI_PRODUCT_MIN_VERSION.localeCompare(version);
-            // returns -1 if the min version is before the current version
-            // returns 0 if the two versions are equal
-            // returns 1 if the min version is after the current version
-            if (n < 1) {
+		  if (result.success) {
+		    var version = result.Version;
+		    // compare the version
+		    var n = FEATURE_MULTI_PRODUCT_MIN_VERSION.localeCompare(version);
+		    // returns -1 if the min version is before the current version
+		    // returns 0 if the two versions are equal 
+		    // returns 1 if the min version is after the current version
+		    if (n < 1) {
               isFeatureMultiProductSupported = true;
-              //If the current version is compatible, run the request veeva:getApprovedDocument to get the document
+		      //If the current version is compatible, run the request veeva:getApprovedDocument to get the document
               //Otherwise, we just run existing js logic to return the document
-              window["com_veeva_clm_approvedDocument"] = function(result) {
-                result = com.veeva.clm.formatResult(result);
-                if (result.success && result.ApprovedDocumentId) {
-                  var ret = {};
-                  ret.Approved_Document_vod__c = {};
-                  ret.Approved_Document_vod__c.ID = result.ApprovedDocumentId;
-                  ret.success = true;
-                  com.veeva.clm.wrapResult("getApprovedDocument", callback, ret);
-                  return;
-                } else {
-                  var ret = {};
-                  ret.success = false;
+		      window["com_veeva_clm_approvedDocument"] = function(result) {
+		        result = com.veeva.clm.formatResult(result);
+		        if (result.success && result.ApprovedDocumentId) {
+		          var ret = {};
+		          ret.Approved_Document_vod__c = {};
+		          ret.Approved_Document_vod__c.ID = result.ApprovedDocumentId;
+		          ret.success = true;
+		          com.veeva.clm.wrapResult("getApprovedDocument", callback, ret);
+		          return;
+		        } else {
+		          var ret = {};
+		          ret.success = false;
                   if(result.code != undefined){
                         ret.code = result.code;
                   }
                   if(result.message != undefined){
                         ret.message = result.message;
                   }
-                  com.veeva.clm.wrapResult("getApprovedDocument", callback, ret);
-                  return;
+		          com.veeva.clm.wrapResult("getApprovedDocument", callback, ret);
+		          return;
                 }
-              }
+		      }
 
-              query = "veeva:getApprovedDocument(" + vault_id + "," + document_num + "),com_veeva_clm_approvedDocument(result)";
-              if (!com.veeva.clm.testMode)
-                com.veeva.clm.runAPIRequest(query);
-              else
-                com_veeva_clm_appVersion(com.veeva.clm.testResult.common);
-            }
-          }
+		      query = "veeva:getApprovedDocument(" + vault_id + "," + document_num + "),com_veeva_clm_approvedDocument(result)";
+		      if (!com.veeva.clm.testMode)
+		        com.veeva.clm.runAPIRequest(query);
+		      else
+		        com_veeva_clm_appVersion(com.veeva.clm.testResult.common);
+		    }
+		  }
 
           if( isFeatureMultiProductSupported == false) {
         // existing js logic to return the document
-        // 2b Check results of Approved Document query against My Setup results
+		// 2b Check results of Approved Document query against My Setup results
         window["com_veeva_clm_DocumentTypeId_getDocument"] = function(result) {
             result = com.veeva.clm.formatResult(result);
 
@@ -1027,10 +1027,10 @@ com.veeva.clm = {
             }
         });
 
-          }
-        });
-
-    },
+		  }
+		});
+		
+	},
     // Launches the Send Email user interface with the email template and fragments selected.  An Account must be selected.
     // If CLM_Select_Account_Preview_Mode Veeva Setting is enabled, then Select Account dialogue is opened so the user can select an account.
     // If the Veeva Setting is not enabled and no Account is selected, then no action will be performed.
@@ -1082,7 +1082,7 @@ com.veeva.clm = {
             com_veeva_clm_launchApprovedEmail(com.veeva.clm.testResult.approvedEmailId);
 
     },
-
+    
     // Launches the Send Email user interface with the email template and fragments selected with a veeva content.  An Account must be selected.
     // If CLM_Select_Account_Preview_Mode Veeva Setting is enabled, then Select Account dialogue is opened so the user can select an account.
     // If the Veeva Setting is not enabled and no Account is selected, then no action will be performed.
@@ -1097,7 +1097,7 @@ com.veeva.clm = {
         if(ret.success == false) {
             return ret;
         }
-
+        
         ret = this.checkArgument("veeva_content", veeva_content);
         if(ret.success == false) {
             com.veeva.clm.wrapResult("launchApprovedEmailWithVeevaContent", callback, ret);
@@ -1113,7 +1113,7 @@ com.veeva.clm = {
         if(email_fragments == undefined || email_fragments == null) {
             email_fragments = "";
         }
-
+        
         veev_content_element = ""
         if(veeva_content && veeva_content.trim() !== "") {
             veev_content_element = ",contentId(" + veeva_content + ")"
@@ -1133,7 +1133,7 @@ com.veeva.clm = {
         }
 
     },
-
+    
     /////////////////////// Functions to replace exising API calls ///////////////////////
 
     // 1
@@ -1850,24 +1850,24 @@ com.veeva.clm = {
         var request = "veeva:request(" + JSON.stringify(object) + "),com_veeva_clm_requestReturn(result)";
         com.veeva.clm.runAPIRequest(request, callback);
     },
-
-    //20,
-    // Returns the version of the current offline application
+	
+	//20,
+	// Returns the version of the current offline application
     getAppVersion: function(callback) {
         ret = this.checkCallbackFunction(callback);
         if(ret.success == false)
             return ret;
-
+       
         window.com_veeva_clm_appVersion = function(result) {
-            clearTimeout(timer);
+			clearTimeout(timer);
             com.veeva.clm.wrapResult("getAppVersion", callback, result);
         }
 
-        var timer = setTimeout(function() {
-                result = { success: false };
-                com.veeva.clm.wrapResult("getAppVersion", callback, result);
-        }, 1500);
-
+		var timer = setTimeout(function() { 
+				result = { success: false };
+				com.veeva.clm.wrapResult("getAppVersion", callback, result);
+		}, 1500);
+		
         query = "veeva:getAppVersion(),com_veeva_clm_appVersion(result)";
         if(!com.veeva.clm.testMode) {
             com.veeva.clm.runAPIRequest(query);
@@ -2186,8 +2186,8 @@ com.veeva.clm = {
         } else if(com.veeva.clm.isVeevaMessagingEnabled()) {
             window.webkit.messageHandlers.veeva.postMessage({"message": request});
         } else {
-            // existing code in this block could be deleted, but to play safe, we keep
-        // as is just in case some legacy applications still need them.
+            // existing code in this block could be deleted, but to play safe, we keep 
+	    // as is just in case some legacy applications still need them.
             // we will eventually remove this code block.
             request = request.replace(/^veeva:/, '');
             request = encodeURIComponent(request);
@@ -2196,7 +2196,7 @@ com.veeva.clm = {
         }
     },
 
-    isVeevaMessagingEnabled: function() {
+    isVeevaMessagingEnabled: function() { 
         return Boolean(window.webkit.messageHandlers.veeva);
     },
 
@@ -2572,13 +2572,13 @@ com.veeva.clm.initialize = function initializeEngage() {
 
 //support functions to allow Windows Modern to support the OnExit functions
 com_veeva_clm_createRecordsOnExit = function() {
-    return com.veeva.clm.createRecordsOnExit();
+	return com.veeva.clm.createRecordsOnExit();
 }
 com_veeva_clm_updateRecordsOnExit = function() {
-    return com.veeva.clm.updateRecordsOnExit();
+	return com.veeva.clm.updateRecordsOnExit();
 }
 com_veeva_clm_updateCurrentRecordsOnExit = function() {
-    return com.veeva.clm.updateCurrentRecordsOnExit();
+	return com.veeva.clm.updateCurrentRecordsOnExit();
 }
 
 
