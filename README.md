@@ -1,7 +1,7 @@
 # Mochi 2.0
 ### Front-end framework for developing responsive, mobile-first projects on the web or offline.
 
-> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/releases/latest) &nbsp;➜&nbsp;  [**v2.1.1**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
+> [**v1.6.2**](https://github.com/codeworksdev/mochi-1.0/releases/latest) &nbsp;➜&nbsp;  [**v2.1.2**](https://github.com/codeworksdev/mochi-2.0/releases/latest)
 
 > [!TIP]
 > The previous generation **Mochi 1.0** is still available [here](https://github.com/codeworksdev/mochi-1.0).
@@ -130,24 +130,30 @@ dist/
 │
 ├── mochi/
 │   ├── css/
-│   │   └── helpers/
-│   │       └── animate.less/
-│   │           └── dist/
-│   │               ├── css/
-│   │               │   └── animate.css
-│   │               │
-│   │               └── less/
-│   │                   ├── _mixins.less
-│   │                   ├── _options.less
-│   │                   └── animate.less
+│   │   ├── helpers/
+│   │   │   └── animate.less/
+│   │   │       └── dist/
+│   │   │           ├── css/
+│   │   │           │   └── animate.css
+│   │   │           │
+│   │   │           └── less/
+│   │   │               ├── _mixins.less
+│   │   │               ├── _options.less
+│   │   │               └── animate.less
+│   │   │
+│   │   └── fontawesome-free/
+│   │       ├── css/
+│   │       │   └── all.min.css
+│   │       │
+│   │       └── webfonts/
+│   │           ├── fa-brands-400.woff2
+│   │           ├── fa-regular-400.woff2
+│   │           ├── fa-solid-900.woff2
+│   │           └── fa-v4compatibility.woff2
 │   │
 │   ├── js/
 │   │   ├── jquery/
 │   │   │   └── ui/
-│   │   │      ├── external/
-│   │   │      │   └── jquery/
-│   │   │      │       └── jquery.js
-│   │   │      │
 │   │   │      ├── images/
 │   │   │      │   ├── ui-icons_444444_256x240.png
 │   │   │      │   ├── ui-icons_555555_256x240.png
@@ -156,14 +162,7 @@ dist/
 │   │   │      │   ├── ui-icons_cc0000_256x240.png
 │   │   │      │   └── ui-icons_ffffff_256x240.png
 │   │   │      │
-│   │   │      ├── jquery-ui.css
-│   │   │      ├── jquery-ui.js
-│   │   │      ├── jquery-ui.min.css
-│   │   │      ├── jquery-ui.min.js
-│   │   │      ├── jquery-ui.structure.css
-│   │   │      ├── jquery-ui.structure.min.css
-│   │   │      ├── jquery-ui.theme.css
-│   │   │      └── jquery-ui.theme.min.css
+│   │   │      └── jquery-ui.min.css
 │   │   │
 │   │   ├── plugins/
 │   │   │   ├── dialog/
@@ -252,7 +251,7 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 | Bootstrap         | 5.3.8   | https://getbootstrap.com/                      |
 | Chart.js          | 4.5.1   | https://www.chartjs.org/                       |
 | Clipboard.js      | 2.0.11  | https://clipboardjs.com/                       |
-| Font Awesome Free | 7.1     | https://fontawesome.com/                       |
+| Font Awesome Free | 7.2     | https://fontawesome.com/                       |
 | Holder.js         | 2.9.9   | http://holderjs.com/                           |
 | iScroll           | 5.2.0   | https://github.com/cubiq/iscroll               |
 | jQuery            | 4.0.0   | http://jquery.com/                             |
@@ -260,7 +259,7 @@ One of the major advantages of using Mochi 2.0 is that it comes packed with many
 | Modernizr         | 3.6.0   | https://modernizr.com/                         |
 | Popper.js         | 2.11.8  | https://popper.js.org/docs/v2/                 |
 | sprintf-js        | 1.1.3   | https://www.npmjs.com/package/sprintf-js       |
-| Underscore.js     | 1.13.7  | http://underscorejs.org/                       |
+| Underscore.js     | 1.13.8  | http://underscorejs.org/                       |
 | Underscore.string | 3.2.1   | https://github.com/esamattis/underscore.string |
 
 ___
@@ -449,21 +448,21 @@ The persistent Mochi 2.0 instance contains the following components:
 | [getView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mgetview)                         | [mochi_unload](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload)               | [SW_VERBOSE_SYNCING_OPTIONS](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#sw_verbose_syncing_options)           | __page_name               |
 | [isSimpleObj](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#missimpleobj)                 | [mochi_unload_page](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_page)     |                                                                     |                           |
 | [load](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mload)                               | [mochi_unload_page{N}](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_pagen) |                                                                     |                           |
-| [loadPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mloadpage)                       | [mochi_unload_page](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload)          |                                                                     |                           |
-| [loadView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mloadview)                       | [mochi_unload_page{N}](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_pagen) |                                                                     |                           |
-| [log](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mlog)                                 | [mochi_unload_view](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_view)     |                                                                     |                           |
-| [onClick](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#monclick)                         | [mochi_unload_view{N}](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_viewn) |                                                                     |                           |
-| [sanitizeTitle](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msanitizetitle)             | [mochi_last](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_last)                   |                                                                     |                           |
-| [setOnClickName](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetonclickname)           | [mochi_onchange](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_onchange)           |                                                                     |                           |
-| [setOption](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetoption)                     | [mochi_onmutation](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_onmutation)       |                                                                     |                           |
-| [setPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetpage)                         |                                             |                                                                     |                           |
-| [setState](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetstate)                       |                                             |                                                                     |                           |
-| [setView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetview)                         |                                             |                                                                     |                           |
-| [unload](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munload)                           |                                             |                                                                     |                           |
-| [unloadPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munloadpage)                   |                                             |                                                                     |                           |
-| [unloadView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munloadview)                   |                                             |                                                                     |                           |
-| [widgetOnDownloading](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mwidgetondownloading) |                                             |                                                                     |                           |
-| [widgetOnUpdateReady](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mwidgetonupdateready) |                                             |                                                                     |                           |
+| [loadPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mloadpage)                       | [mochi_unload_view](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_view)     |                                                                     |                           |
+| [loadView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mloadview)                       | [mochi_unload_view{N}](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_unload_viewn) |                                                                     |                           |
+| [log](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mlog)                                 | [mochi_last](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_last)                   |                                                                     |                           |
+| [onClick](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#monclick)                         | [mochi_onchange](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_onchange)           |                                                                     |                           |
+| [sanitizeTitle](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msanitizetitle)             | [mochi_onmutation](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mochi_onmutation)       |                                                                     |                           |
+| [setOnClickName](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetonclickname)           |                                                                                                         |                                                                     |                           |
+| [setOption](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetoption)                     |                                                                                                         |                                                                     |                           |
+| [setPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetpage)                         |                                                                                                         |                                                                     |                           |
+| [setState](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetstate)                       |                                                                                                         |                                                                     |                           |
+| [setView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#msetview)                         |                                                                                                         |                                                                     |                           |
+| [unload](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munload)                           |                                                                                                         |                                                                     |                           |
+| [unloadPage](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munloadpage)                   |                                                                                                         |                                                                     |                           |
+| [unloadView](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#munloadview)                   |                                                                                                         |                                                                     |                           |
+| [widgetOnDownloading](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mwidgetondownloading) |                                                                                                         |                                                                     |                           |
+| [widgetOnUpdateReady](https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#mwidgetonupdateready) |                                                                                                         |                                                                     |                           |
 
 
 ## Methods
