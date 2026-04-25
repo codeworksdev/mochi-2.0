@@ -1,5 +1,8 @@
 /**
  * Mochi lifecycle hook that initializes default application options.
+ *
+ * @this {Mochi}
+ * @returns {void}
  */
 function mochi_init() {
     this.setOption({
@@ -18,14 +21,13 @@ function mochi_init() {
 /* Hooks                                                                      */
 /* ========================================================================== */
 
-/*
- * Hooks
+/**
+ * Mochi Lifecycle Hooks
  *
- * https://github.com/codeworksdev/mochi-2.0?tab=readme-ov-file#hooks
+ * These functions are automatically invoked by the Mochi framework
+ * at specific points in the application lifecycle.
  *
- * Hooks are provided by Mochi 2.0 to allow your application to hook into
- * the rest of the framework with minimal coding. Each hook is called
- * automatically by the Mochi 2.0 framework under specific circumstances.
+ * @see https://github.com/codeworksdev/mochi-2.0#hooks
  */
 
 function mochi_before       ()         {}
@@ -82,10 +84,11 @@ $(document).ready(
 /* ========================================================================== */
 
 /**
- * Creates a new MyMochiApplication instance.
+ * Application entry point.
  *
  * @constructor
- * @param {Object} meta - Optional metadata or configuration passed to the application.
+ * @class MyMochiApplication
+ * @param {Object} [meta={}] - Optional configuration passed from $m.extend().
  */
 function MyMochiApplication(meta) {
     this._options();
@@ -138,8 +141,8 @@ MyMochiApplication.prototype = {
 
     /**
      * Run on initial app load after bootstrapping.
-     * Typically triggers initial renders, startup logic, etc.
      *
+     * @public
      * @returns {MyMochiApplication} Fluent instance.
      */
     onload: function() {
