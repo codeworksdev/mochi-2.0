@@ -100,6 +100,7 @@ MyMochiApplication.prototype = {
      * Define/normalize runtime options (feature flags, constants, timing, etc.).
      * Called early in bootstrapping.
      *
+     * @private
      * @returns {void}
      */
     _options: function() {
@@ -109,6 +110,7 @@ MyMochiApplication.prototype = {
      * Cache commonly-used DOM references (containers, pages, menus, etc.).
      * Called during app bootstrapping.
      *
+     * @private
      * @returns {void}
      */
     _html: function() {
@@ -118,6 +120,7 @@ MyMochiApplication.prototype = {
      * Initialize internal variables/state used by the application.
      * Called during bootstrapping.
      *
+     * @private
      * @returns {void}
      */
     _vars: function() {
@@ -127,6 +130,7 @@ MyMochiApplication.prototype = {
      * Main initializer for runtime behavior (events, UI components init, etc.).
      * Called after options/vars/html setup.
      *
+     * @private
      * @returns {void}
      */
     _init: function() {
