@@ -56,12 +56,19 @@
  *
  * @fires Mochi#mochi_load
  * @fires Mochi#mochi_load_page
+ * @fires Mochi#mochi_load_page{n}
  * @fires Mochi#mochi_load_view
+ * @fires Mochi#mochi_load_view{n}
  * @fires Mochi#mochi_last
  *
  * @returns {void}
  */
 $(document).ready(function() {
+    /**
+     * Global Mochi instance.
+     *
+     * @type {Mochi}
+     */
     window.$m = new Mochi();
 
     $m.do([
