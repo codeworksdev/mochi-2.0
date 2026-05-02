@@ -39,6 +39,28 @@
  * @property {MochiSyncingOptions} SW_VERBOSE_SYNCING_OPTIONS - Syncing notification UI options.
  */
 
+/**
+ * Initializes the Mochi framework once the DOM is ready.
+ *
+ * - Instantiates the global Mochi instance (`window.$m`)
+ * - Executes the initial lifecycle hook sequence:
+ *   - `mochi_load`
+ *   - `mochi_load_page`
+ *   - `mochi_load_page{n}`
+ *   - `mochi_load_view`
+ *   - `mochi_load_view{n}`
+ *   - `mochi_last`
+ *
+ * This establishes the initial application state and triggers
+ * any user-defined hook implementations.
+ *
+ * @fires Mochi#mochi_load
+ * @fires Mochi#mochi_load_page
+ * @fires Mochi#mochi_load_view
+ * @fires Mochi#mochi_last
+ *
+ * @returns {void}
+ */
 $(document).ready(function() {
     window.$m = new Mochi();
 
