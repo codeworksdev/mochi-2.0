@@ -1,32 +1,67 @@
 /*!
- * Mochi v2.1.2 (https://github.com/codeworksdev/mochi-2.0)
+ * Mochi v2.2 (https://github.com/codeworksdev/mochi-2.0)
  * Copyright (c) 2014-2026 CODEWORKS <support@codeworksnyc.com>
  * Licensed under the MIT license
  */
-$(document).ready(
-    function()
-    {
-        window.$m = new Mochi;
 
-        $m.do([
-            'mochi_load',
-            'mochi_load_page',
-            'mochi_load_page'+Number($m.getPage()),
-            'mochi_load_view',
-            'mochi_load_view'+Number($m.getView()),
-            'mochi_last',
-            ]);
-    }
-    );
+/**
+ * @typedef {Object} MochiStatePayload
+ * @property {?string} caller - Name of the method or callback that triggered the state change.
+ * @property {number} newStateNumber - New page/view number.
+ * @property {number} oldStateNumber - Previous page/view number.
+ * @property {string} stateName - State type. Expected values are `page` or `view`.
+ */
 
-/*
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-*/
+/**
+ * @typedef {Object} MochiSyncingOptions
+ * @property {string} text - Text displayed while the app is syncing.
+ * @property {string} icon - Font Awesome icon class displayed while syncing.
+ * @property {boolean} spin - Whether the icon should spin.
+ */
 
-function Mochi()
-{
+/**
+ * @typedef {Object} MochiUpdateNotificationOptions
+ * @property {string} buttonTitle - Text for the update-available button.
+ * @property {string} dialogButtonTitle - Text for the modal update button.
+ * @property {string} dialogContent - HTML content displayed in the update modal body.
+ * @property {string} dialogTitle - Title displayed in the update modal header.
+ */
+
+/**
+ * @typedef {Object} MochiOptions
+ * @property {string} CLICK_NAME - Click/touch event name, or `auto` for device-based detection.
+ * @property {boolean} DEBUG_MODE - Whether to log debug messages.
+ * @property {boolean} ENABLE_SERVICE_WORKER - Whether to register `./sw.js`.
+ * @property {string[]} LAZY_LOAD_PLUGINS - Plugin names to lazy-load from `mochi/js/plugins/{name}/dist/{name}.min.js`.
+ * @property {boolean} SW_UPDATE_NOTIFICATIONS - Whether to notify users when an update is available.
+ * @property {MochiUpdateNotificationOptions} SW_UPDATE_NOTIFICATIONS_OPTIONS - Update notification UI options.
+ * @property {boolean} SW_VERBOSE_SYNCING - Whether to show a syncing/downloading notification.
+ * @property {MochiSyncingOptions} SW_VERBOSE_SYNCING_OPTIONS - Syncing notification UI options.
+ */
+
+$(document).ready(function() {
+    window.$m = new Mochi();
+
+    $m.do([
+        'mochi_load',
+        'mochi_load_page',
+        'mochi_load_page' + Number($m.getPage()),
+        'mochi_load_view',
+        'mochi_load_view' + Number($m.getView()),
+        'mochi_last',
+    ]);
+});
+
+/* ========================================================================== */
+/* Core                                                                       */
+/* ========================================================================== */
+
+/**
+ * Creates the global Mochi framework instance.
+ *
+ * @class
+ */
+function Mochi() {
     this._options();
     this._before();
     this._vars();
@@ -35,61 +70,83 @@ function Mochi()
     this._fa();
     this._body();
     this._init();
-};
+}
 
-/*
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-*/
+/* ========================================================================== */
+/* Prototype                                                                  */
+/* ========================================================================== */
 
-Mochi.prototype =
-{
-    _options : function()
-    {
+Mochi.prototype = {
+
+    /**
+     * Define default runtime options and create mutable option state.
+     *
+     * @private
+     * @returns {void}
+     */
+    _options: function() {
         var o = {
-            CLICK_NAME              : 'auto',
-            DEBUG_MODE              : false,
-            ENABLE_SERVICE_WORKER   : false,
-            LAZY_LOAD_PLUGINS       : [],
-            SW_UPDATE_NOTIFICATIONS : true,
+            CLICK_NAME                      : 'auto',
+            DEBUG_MODE                      : false,
+            ENABLE_SERVICE_WORKER           : false,
+            LAZY_LOAD_PLUGINS               : [],
+            SW_UPDATE_NOTIFICATIONS         : true,
             SW_UPDATE_NOTIFICATIONS_OPTIONS : {
                 buttonTitle       : 'Update Available',
                 dialogButtonTitle : 'Update Now',
                 dialogContent     : '<p>Good news! A new software update is available for your app. We recommend updating now, but if you\'d like, you can hit cancel and manually refresh later.</p>',
                 dialogTitle       : 'Software Update',
-                },
-            SW_VERBOSE_SYNCING : true,
-            SW_VERBOSE_SYNCING_OPTIONS : {
+            },
+            SW_VERBOSE_SYNCING              : true,
+            SW_VERBOSE_SYNCING_OPTIONS      : {
                 text : 'SYNCING',
                 icon : 'fa-cog',
                 spin : true,
-                },
-            };
+            },
+        };
 
         this.default = JSON.parse(JSON.stringify(o));
         this.options = JSON.parse(JSON.stringify(o));
     },
 
-    _before : function()
-    {
-        this.do('mochi_before')
+    /**
+     * Fire the `mochi_before` lifecycle hook.
+     *
+     * @private
+     * @returns {void}
+     */
+    _before: function() {
+        this.do('mochi_before');
     },
 
-    _vars : function()
-    {
+    /**
+     * Cache common DOM references and runtime values.
+     *
+     * @private
+     * @returns {void}
+     */
+    _vars: function() {
         this.__body      = $('body');
         this.__container = this.__body.find('#container');
         this.__content   = this.__body.find('#content');
         this.__head      = $('head');
         this.__href      = window.location.href;
         this.__html      = $('html');
-        this.__observer  = new MutationObserver(function(mutations){mutations.forEach($m._onMutation, $m)});
-        this.__page_name = /[\\\/]([^\\\\/\?]+)(\?.*)?$/.test(this.__href) ? RegExp.$1.replace(/\.[^\.]+$/, '') : 'index';
+        this.__observer  = new MutationObserver(function(mutations) {
+            mutations.forEach($m._onMutation, $m);
+        });
+        this.__page_name = /[\\\/]([^\\\\/?]+)(\?.*)?$/.test(this.__href)
+            ? RegExp.$1.replace(/\.[^.]+$/, '')
+            : 'index';
     },
 
-    _observe : function()
-    {
+    /**
+     * Start observing document mutations for the `mochi_onmutation` hook.
+     *
+     * @private
+     * @returns {void}
+     */
+    _observe: function() {
         this.__observer.observe(
             this.__html[0],
             {
@@ -98,234 +155,262 @@ Mochi.prototype =
                 characterData : true,
                 subtree       : true,
             }
-            );
+        );
     },
 
-    _html : function()
-    {
-        var d = this.__html,
-            p = d.attr('data-page'),
-            v = d.attr('data-view'),
-            r = new RegExp(/^\d+(\.\d+)?$/);
+    /**
+     * Normalize root HTML state attributes.
+     *
+     * @private
+     * @returns {void}
+     */
+    _html: function() {
+        var d = this.__html;
+        var p = d.attr('data-page');
+        var v = d.attr('data-view');
+        var r = /^\d+(\.\d+)?$/;
 
         if (!r.test(p)) d.attr('data-page', 0);
         if (!r.test(v)) d.attr('data-view', 0);
     },
 
-    _fa : function()
-    {
-        var d = this.__html,
-            c = 'fontawesome-i2svg-active';
+    /**
+     * Add the Font Awesome fallback class when SVG replacement is not active.
+     *
+     * @private
+     * @returns {void}
+     */
+    _fa: function() {
+        var d = this.__html;
+        var c = 'fontawesome-i2svg-active';
 
-        if (!d.hasClass(c))
-        {
+        if (!d.hasClass(c)) {
             d.addClass(
                 c.replace(/-\w+$/, '-no-icons-found')
-                );
+            );
         }
     },
 
-    _body : function()
-    {
+    /**
+     * Add page-specific classes to the root HTML element.
+     *
+     * @private
+     * @returns {void}
+     */
+    _body: function() {
         this.__html.addClass(
-              'is-page-'
-            + this.sanitizeTitle(this.__page_name)
-            );
+            'is-page-' +
+            this.sanitizeTitle(this.__page_name)
+        );
     },
 
-    _init : function()
-    {
+    /**
+     * Initialize lifecycle hooks, legacy appcache handlers, service worker support,
+     * and lazy-loaded plugins.
+     *
+     * @private
+     * @returns {void}
+     */
+    _init: function() {
         this.do('mochi_init');
 
-        if (this.__html.attr('manifest'))
-        {
-            if (this.getOption('SW_VERBOSE_SYNCING') === true)
-            {
+        if (
+            this.__html.attr('manifest') &&
+            window.applicationCache
+        ) {
+            if (this.getOption('SW_VERBOSE_SYNCING') === true) {
                 window.applicationCache.addEventListener(
                     'downloading',
-                    function()
-                    {
+                    function() {
                         setTimeout(
                             function() {
-                                $m.widgetOnDownloading()
-                                },
+                                $m.widgetOnDownloading();
+                            },
                             500
-                            );
+                        );
                     }
-                    );
+                );
 
                 window.applicationCache.addEventListener(
                     'cached',
-                    function()
-                    {
+                    function() {
                         setTimeout(
                             function() {
-                                $('#mochiAlertDownloading-container .alert').alert('close')
-                                },
+                                $('#mochiAlertDownloading-container .alert').alert('close');
+                            },
                             3000
-                            );
+                        );
                     }
-                    );
+                );
             }
 
-            if (this.getOption('SW_UPDATE_NOTIFICATIONS') === true)
-            {
+            if (this.getOption('SW_UPDATE_NOTIFICATIONS') === true) {
                 window.applicationCache.addEventListener(
                     'updateready',
-                    function()
-                    {
+                    function() {
                         setTimeout(
-                            function()
-                            {
+                            function() {
                                 setTimeout(
                                     function() {
-                                        $('#mochiAlertDownloading-container .alert').alert('close')
-                                        },
+                                        $('#mochiAlertDownloading-container .alert').alert('close');
+                                    },
                                     3000
-                                    );
+                                );
 
-                                $m.widgetOnUpdateReady()
+                                $m.widgetOnUpdateReady();
                             },
                             500
-                            );
+                        );
                     }
-                    );
+                );
             }
         }
 
         if (
-          this.options.ENABLE_SERVICE_WORKER
-          && 'serviceWorker' in navigator)
-        {
-            navigator
-                .serviceWorker
+            this.options.ENABLE_SERVICE_WORKER &&
+            'serviceWorker' in navigator
+        ) {
+            navigator.serviceWorker
                 .register('./sw.js')
-                .then(
-                    reg =>
-                    {
-                        console.log('ServiceWorker registration successful with scope: '+reg.scope);
+                .then(function(reg) {
+                    console.log('ServiceWorker registration successful with scope: ' + reg.scope);
 
-                        reg.addEventListener(
-                            'updatefound', () =>
-                            {
-                                if (reg.active)
-                                {
-                                    const newWorker = reg.installing;
+                    reg.addEventListener(
+                        'updatefound',
+                        function() {
+                            var newWorker = reg.installing;
 
-                                    newWorker.addEventListener(
-                                        'statechange', () =>
-                                        {
-                                            switch (newWorker.state)
-                                            {
-                                                case 'activated':
-                                                if ($m.getOption('SW_UPDATE_NOTIFICATIONS') === true)
-                                                {
-                                                    $m.widgetOnUpdateReady()
+                            if (!newWorker) return;
+
+                            if (reg.active) {
+                                newWorker.addEventListener(
+                                    'statechange',
+                                    function() {
+                                        switch (newWorker.state) {
+                                            case 'activated':
+                                                if ($m.getOption('SW_UPDATE_NOTIFICATIONS') === true) {
+                                                    $m.widgetOnUpdateReady();
                                                 }
                                                 break;
-                                            }
                                         }
-                                        );
-                                }
-                                else
-                                {
-                                    const newWorker = reg.installing;
-
-                                    if ($m.getOption('SW_VERBOSE_SYNCING') === true)
-                                    {
-                                        $m.widgetOnDownloading()
                                     }
+                                );
+                            }
+                            else {
+                                if ($m.getOption('SW_VERBOSE_SYNCING') === true) {
+                                    $m.widgetOnDownloading();
+                                }
 
-                                    newWorker.addEventListener(
-                                        'statechange', () =>
-                                        {
-                                            switch (newWorker.state)
-                                            {
-                                                case 'activated':
+                                newWorker.addEventListener(
+                                    'statechange',
+                                    function() {
+                                        switch (newWorker.state) {
+                                            case 'activated':
                                                 setTimeout(
                                                     function() {
-                                                        $('#mochiAlertDownloading-container .alert').alert('close')
-                                                        },
+                                                        $('#mochiAlertDownloading-container .alert').alert('close');
+                                                    },
                                                     1000
-                                                    );
+                                                );
                                                 break;
-                                            }
                                         }
-                                        );
-                                }
+                                    }
+                                );
                             }
-                            );
-                    }
-                    )
-                .catch(
-                    function(err) {
-                        console.error('ServiceWorker registration failed: '+err)
                         }
                     );
+                })
+                .catch(function(err) {
+                    console.error('ServiceWorker registration failed: ' + err);
+                });
         }
 
         if (
-          this.options.LAZY_LOAD_PLUGINS
-          && _.isArray(this.options.LAZY_LOAD_PLUGINS)
-          && this.options.LAZY_LOAD_PLUGINS.length)
-        {
+            this.options.LAZY_LOAD_PLUGINS &&
+            _.isArray(this.options.LAZY_LOAD_PLUGINS) &&
+            this.options.LAZY_LOAD_PLUGINS.length
+        ) {
             _.each(
                 this.options.LAZY_LOAD_PLUGINS,
                 function(name) {
-                    $.getScript('mochi/js/plugins/'+name+'/dist/'+name+'.min.js')
-                    },
+                    $.getScript('mochi/js/plugins/' + name + '/dist/' + name + '.min.js');
+                },
                 this
-                );
+            );
         }
     },
 
-    _onMutation : function(mutation)
-    {
+    /**
+     * Forward observed mutations into the optional `mochi_onmutation` hook.
+     *
+     * @private
+     * @param {MutationRecord} mutation - Mutation record emitted by the observer.
+     * @returns {void}
+     */
+    _onMutation: function(mutation) {
         if (
-          window['mochi_onmutation']
-          && _.isFunction(window['mochi_onmutation']))
-        {
-            this.log('hook: mochi_onmutation('+mutation.constructor.name+')');
-            mochi_onmutation(mutation)
+            window.mochi_onmutation &&
+            _.isFunction(window.mochi_onmutation)
+        ) {
+            this.log('hook: mochi_onmutation(' + mutation.constructor.name + ')');
+            window.mochi_onmutation.call(this, mutation);
         }
     },
 
-    do : function(f, a)
-    {
-        if (_.isArray(f))
-        {
+    /**
+     * Execute one or more global Mochi lifecycle hooks by name.
+     *
+     * @public
+     * @param {string|string[]} f - Hook name or array of hook names to execute.
+     * @param {Array<*>} [a] - Arguments passed to the hook via `Function#apply`.
+     * @returns {Mochi} Fluent instance.
+     */
+    do: function(f, a) {
+        if (_.isArray(f)) {
             _.each(
                 f,
                 function(v) {
-                    this.instance.do(v, this.args)
-                    },
+                    this.instance.do(v, this.args);
+                },
                 {
                     instance : this,
-                    args : a,
+                    args     : a,
                 }
-                );
+            );
         }
         else if (
-          f
-          && typeof f === 'string'
-          && /^[a-zA-Z_\$][\w\$]*$/.test(f)
-          && window[f]
-          && _.isFunction(window[f]))
-        {
-            this.log('hook: '+f+'.apply(Mochi, '+JSON.stringify(a)+')');
-            eval('window["'+f+'"].apply(this, a)')
+            f &&
+            typeof f === 'string' &&
+            /^[a-zA-Z_$][\w$]*$/.test(f) &&
+            window[f] &&
+            _.isFunction(window[f])
+        ) {
+            a = _.isArray(a) ? a : [];
+
+            this.log('hook: ' + f + '.apply(Mochi, ' + JSON.stringify(a) + ')');
+            window[f].apply(this, a);
         }
 
-        return this
+        return this;
     },
 
-    extend : function(k, c, m, f)
-    {
+    /**
+     * Attach an application extension instance to the Mochi instance.
+     *
+     * @public
+     * @param {string} k - Property name to create on the Mochi instance.
+     * @param {Function} c - Constructor used to create the extension instance.
+     * @param {Object|Function} [m] - Metadata object or callback function.
+     * @param {Function} [f] - Callback fired after the extension is created.
+     * @throws {MochiError} When the extension name is reserved, unsupported, or already defined.
+     * @returns {Mochi} Fluent instance.
+     */
+    extend: function(k, c, m, f) {
         if (
-          k
-          && typeof k === 'string'
-          && /^[a-z]\w*$/i.test(k))
-        {
+            k &&
+            typeof k === 'string' &&
+            /^[a-z]\w*$/i.test(k)
+        ) {
             var r = [
                 '__body',
                 '__container',
@@ -371,519 +456,678 @@ Mochi.prototype =
                 'unloadView',
                 'widgetOnDownloading',
                 'widgetOnUpdateReady',
-                ];
+            ];
 
             if (
-              $.inArray(k, r) == -1
-              && !_.has(this, k)
-              && _.isFunction(c))
-            {
-                var meta = (m && this.isSimpleObj(m)) ? JSON.parse(JSON.stringify(m)) : {},
-                    func = (m && _.isFunction(m)) ? m : f,
-                    json = JSON.stringify(meta);
+                $.inArray(k, r) === -1 &&
+                !_.has(this, k) &&
+                _.isFunction(c)
+            ) {
+                var meta = (m && this.isSimpleObj(m)) ? JSON.parse(JSON.stringify(m)) : {};
+                var func = (m && _.isFunction(m)) ? m : f;
+                var json = JSON.stringify(meta);
 
-                this.log('extend: $m.'+k+' = new '+c.name+'('+json+')');
-                eval('this[k]=new c(meta)');
+                this.log('extend: $m.' + k + ' = new ' + c.name + '(' + json + ')');
+                this[k] = new c(meta);
 
                 if (
-                  func
-                  && _.isFunction(func))
-                {
-                    func.apply(this[k], meta)
+                    func &&
+                    _.isFunction(func)
+                ) {
+                    func.call(this[k], meta);
                 }
 
-                return this
+                return this;
             }
         }
 
         throw new MochiError(
-              'Cannot extend as "'+k+'". '
-            + 'Name reserved, unsupported, or already defined.'
-            );
-
-        return this
+            'Cannot extend as "' + k + '". ' +
+            'Name reserved, unsupported, or already defined.'
+        );
     },
 
-    getDefaultOption : function(k)
-    {
-        return this.getOption(k, true)
+    /**
+     * Return a clone of the default option value for a given key.
+     *
+     * @public
+     * @param {keyof MochiOptions|string} k - Option key.
+     * @returns {*} Default option value, or `undefined` when unavailable.
+     */
+    getDefaultOption: function(k) {
+        return this.getOption(k, true);
     },
 
-    getOnClickName : function()
-    {
+    /**
+     * Return the configured click/touch event name.
+     *
+     * @public
+     * @returns {string} Event name to use for click-like interactions.
+     */
+    getOnClickName: function() {
         var o = this.getOption('CLICK_NAME');
 
-        return o == 'auto'
-          ? (this.__html.hasClass('no-touchevents') ? 'click' : 'touchstart')
-          : o;
+        return o === 'auto'
+            ? (this.__html.hasClass('no-touchevents') ? 'click' : 'touchstart')
+            : o;
     },
 
-    getOption : function(k, d)
-    {
+    /**
+     * Return an option value.
+     *
+     * Object values are cloned before being returned so callers cannot mutate
+     * internal option state directly.
+     *
+     * @public
+     * @param {keyof MochiOptions|string} k - Option key.
+     * @param {boolean} [d=false] - When true, read from default options.
+     * @returns {*} Option value, or `undefined` when unavailable.
+     */
+    getOption: function(k, d) {
         if (
-          k
-          && typeof k === 'string')
-        {
+            k &&
+            typeof k === 'string'
+        ) {
             var o = this[d ? 'default' : 'options'];
 
-            if (_.has(o, k))
-            {
+            if (_.has(o, k)) {
                 var v = _.isFunction(o[k])
-                  ? o[k].call(this)
-                  : o[k];
+                    ? o[k].call(this)
+                    : o[k];
 
                 return this.isSimpleObj(v)
-                  ? JSON.parse(JSON.stringify(v))
-                  : v;
+                    ? JSON.parse(JSON.stringify(v))
+                    : v;
             }
         }
 
-        return
+        return undefined;
     },
 
-    getPage : function(p)
-    {
-        return this.getState('page', p)
+    /**
+     * Return the current page state.
+     *
+     * @public
+     * @param {number|string} [p] - Optional left-pad width.
+     * @returns {number|string} Current page number, optionally left-padded.
+     */
+    getPage: function(p) {
+        return this.getState('page', p);
     },
 
-    getState : function(s, p)
-    {
+    /**
+     * Return the current numeric state for a page or view.
+     *
+     * @public
+     * @param {string} s - State name. Expected values are `page` or `view`.
+     * @param {number|string} [p] - Optional left-pad width.
+     * @returns {number|string|undefined} Current state value, optionally left-padded.
+     */
+    getState: function(s, p) {
         if (
-          s
-          && typeof s === 'string'
-          && /^page|view$/i.test(s))
-        {
-            var n = this.__html.attr('data-'+s.toLowerCase());
+            s &&
+            typeof s === 'string' &&
+            /^(page|view)$/i.test(s)
+        ) {
+            var n = this.__html.attr('data-' + s.toLowerCase());
 
             return window.s.pad(
                 (n && /^\d+(\.\d+)?$/.test(n)) ? Number(n) : 0,
                 (p && /^\d+$/.test(p)) ? Number(p) : 0,
                 '0'
-                );
+            );
         }
 
-        return
+        return undefined;
     },
 
-    getView : function(p)
-    {
-        return this.getState('view', p)
+    /**
+     * Return the current view state.
+     *
+     * @public
+     * @param {number|string} [p] - Optional left-pad width.
+     * @returns {number|string} Current view number, optionally left-padded.
+     */
+    getView: function(p) {
+        return this.getState('view', p);
     },
 
-    isSimpleObj : function(v)
-    {
+    /**
+     * Test whether a value is a simple object.
+     *
+     * @public
+     * @param {*} v - Value to test.
+     * @returns {boolean} True when the value is a non-array, non-function object.
+     */
+    isSimpleObj: function(v) {
+        return Boolean(
+            v &&
+            _.isObject(v) &&
+            !_.isArray(v) &&
+            !_.isFunction(v)
+        );
+    },
+
+    /**
+     * Fire load hooks for a page or view state.
+     *
+     * @public
+     * @param {string} k - State name. Expected values are `page` or `view`.
+     * @param {number|string} n - State number to load.
+     * @param {Object} [o] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    load: function(k, n, o) {
         if (
-          v
-          && _.isObject(v)
-          && !_.isArray(v)
-          && !_.isFunction(v))
-        {
-            return true
-        }
+            k &&
+            typeof k === 'string' &&
+            /^(page|view)$/i.test(k) &&
+            /^\d+(\.\d+)?$/.test(n)
+        ) {
+            k = k.toLowerCase();
+            n = Number(n);
 
-        return
-    },
-
-    load : function(k, n, o)
-    {
-        if (
-          k
-          && typeof k === 'string'
-          && /^page|view$/i.test(k)
-          && /^\d+(\.\d+)?$/.test(n))
-        {
-            var k = k.toLowerCase(),
-                n = Number(n),
-                h = 'mochi_load_'+k+n.toString().replace(/\D/g,'_'),
-                a = [
-                    _.defaults(
-                        this.isSimpleObj(o) ? o : {},
-                        {
-                            caller         : null,
-                            newStateNumber : n,
-                            oldStateNumber : n,
-                            stateName      : k,
-                        }
-                        )
-                    ];
+            var h = 'mochi_load_' + k + n.toString().replace(/\D/g, '_');
+            var a = [
+                _.defaults(
+                    this.isSimpleObj(o) ? o : {},
+                    {
+                        caller         : null,
+                        newStateNumber : n,
+                        oldStateNumber : n,
+                        stateName      : k,
+                    }
+                ),
+            ];
 
             this.do(
                 [
                     'mochi_load',
-                    'mochi_load_'+k,
+                    'mochi_load_' + k,
                     h,
                     'mochi_onchange',
                 ],
                 a
-                );
+            );
         }
 
-        return this
+        return this;
     },
 
-    loadPage : function(n, f)
-    {
-        return this.load('page', n, f)
+    /**
+     * Fire page load hooks.
+     *
+     * @public
+     * @param {number|string} n - Page number to load.
+     * @param {Object} [f] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    loadPage: function(n, f) {
+        return this.load('page', n, f);
     },
 
-    loadView : function(n, f)
-    {
-        return this.load('view', n, f)
+    /**
+     * Fire view load hooks.
+     *
+     * @public
+     * @param {number|string} n - View number to load.
+     * @param {Object} [f] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    loadView: function(n, f) {
+        return this.load('view', n, f);
     },
 
-    log : function(msg, cond)
-    {
+    /**
+     * Log a message when debug mode is enabled or a condition is truthy.
+     *
+     * @public
+     * @param {*} msg - Message or data to log.
+     * @param {*} [cond] - Forces logging when truthy.
+     * @returns {Mochi} Fluent instance.
+     */
+    log: function(msg, cond) {
         if (
-          cond
-          || this.getOption('DEBUG_MODE') === true)
-        {
-            console.info(msg)
+            cond ||
+            this.getOption('DEBUG_MODE') === true
+        ) {
+            console.info(msg);
         }
 
-        return this
+        return this;
     },
 
-    onClick : function(target, data, handler)
-    {
-        var e = this.getOnClickName(),
-            f = _.isFunction(data),
-            d = f ? {} : data,
-            h = f ? data : handler,
-            s;
+    /**
+     * Attach a click/touch handler using Mochi's configured click event name.
+     *
+     * @public
+     * @param {string|Element|jQuery} target - Selector, DOM element, or jQuery collection.
+     * @param {Object|Function} [data] - Optional event data, or handler when no data is needed.
+     * @param {Function} [handler] - Event handler.
+     * @returns {jQuery} jQuery collection returned by `.on()`.
+     */
+    onClick: function(target, data, handler) {
+        var e = this.getOnClickName();
+        var f = _.isFunction(data);
+        var d = f ? {} : data;
+        var h = f ? data : handler;
+        var s;
 
-        switch (typeof target)
-        {
+        switch (typeof target) {
             case 'string':
-            s = $(target);
-            break;
+                s = $(target);
+                break;
 
             default:
-            s = _.isElement(target)
-              ? $(target)
-              : target;
-            break;
+                s = _.isElement(target)
+                    ? $(target)
+                    : target;
+                break;
         }
 
         return s.on(
             e,
             d,
-            _.isFunction(h)
-              ? h
-              : false
-            );
+            _.isFunction(h) ? h : false
+        );
     },
 
-    sanitizeTitle : function(str, del, def)
-    {
-        try
-        {
-            var repl = (arguments.length > 1 && /^string|number$/.test(typeof del) ? del.toString() : '-'),
-                patt = '('+repl.replace(/([\.\(\)\$\^\*\+\-\?\|\{\}\[\]\\])/g, '\\$1')+')',
-                regx = new RegExp(patt+'{2,}', 'g');
+    /**
+     * Convert a string into a lowercase, delimiter-separated slug.
+     *
+     * @public
+     * @param {*} str - Value to sanitize.
+     * @param {string|number} [del='-'] - Delimiter used to replace invalid characters.
+     * @param {string|number} [def] - Fallback value when the sanitized string is empty.
+     * @returns {string} Sanitized title string.
+     */
+    sanitizeTitle: function(str, del, def) {
+        try {
+            var repl = (arguments.length > 1 && /^(string|number)$/.test(typeof del) ? del.toString() : '-');
+            var patt = '(' + repl.replace(/([.()$^*+\-?|{}\[\]\\])/g, '\\$1') + ')';
+            var regx = new RegExp(patt + '{2,}', 'g');
 
             str = str
-              .toString()
-              .toLowerCase()
-              .replace(/[^a-z\d]/ig, repl)
-              .replace(regx, repl)
-              .replace(
-                new RegExp(
-                    '^'+patt+'*|'+patt+'*$',
-                    'g'
+                .toString()
+                .toLowerCase()
+                .replace(/[^a-z\d]/ig, repl)
+                .replace(regx, repl)
+                .replace(
+                    new RegExp(
+                        '^' + patt + '*|' + patt + '*$',
+                        'g'
                     ),
-                ''
+                    ''
                 );
 
             if (str.length) return str;
-            else
-            {
-                return /^string|number$/.test(typeof def)
-                  ? this.sanitizeTitle(def)
-                  : '';
-            }
+
+            return /^(string|number)$/.test(typeof def)
+                ? this.sanitizeTitle(def)
+                : '';
         }
-        catch(e) {return ''}
+        catch (e) {
+            return '';
+        }
     },
 
-    setOnClickName : function(eventName)
-    {
+    /**
+     * Set the click/touch event name used by `onClick()`.
+     *
+     * @public
+     * @param {string} eventName - Event name to use.
+     * @returns {Mochi} Fluent instance.
+     */
+    setOnClickName: function(eventName) {
         if (
-          eventName
-          && typeof eventName === 'string'
-          && /^\w+$/i.test(eventName))
-        {
+            eventName &&
+            typeof eventName === 'string' &&
+            /^\w+$/i.test(eventName)
+        ) {
             return this.setOption(
                 'CLICK_NAME',
                 eventName
-                );
+            );
         }
 
-        return this
+        return this;
     },
 
-    setOption : function(k, v)
-    {
-        if (this.isSimpleObj(k))
-        {
+    /**
+     * Set one option value or merge a simple object of option values.
+     *
+     * @public
+     * @param {keyof MochiOptions|string|Object} k - Option key, or object map of option keys/values.
+     * @param {*} [v] - New option value when `k` is a string.
+     * @returns {Mochi} Fluent instance.
+     */
+    setOption: function(k, v) {
+        if (this.isSimpleObj(k)) {
             _.each(
                 k,
-                function(v, k) {
-                    this.setOption(k, v)
-                    },
+                function(value, key) {
+                    this.setOption(key, value);
+                },
                 this
-                );
+            );
         }
-        else
-        {
-            if (
-              k
-              && typeof k === 'string'
-              && _.has(this.options, k))
-            {
-                var msg = 'option: '+k+' = '+JSON.stringify(v),
-                    old = _.clone(this.options[k]);
+        else if (
+            k &&
+            typeof k === 'string' &&
+            _.has(this.options, k)
+        ) {
+            var msg = 'option: ' + k + ' = ' + JSON.stringify(v);
+            var old = _.clone(this.options[k]);
 
-                switch (k)
-                {
-                    default          :        this.log( msg             ); break;
-                    case 'DEBUG_MODE': if (v) this.log( msg, null, true ); break;
-                }
+            switch (k) {
+                default:
+                    this.log(msg);
+                    break;
 
-                if (this.isSimpleObj(old))
-                {
-                    if (this.isSimpleObj(v))
-                    {
-                        _.each(
-                            v,
-                            function(new_v, new_k) {
-                                if (_.has(this, new_k)) this[new_k] = new_v
-                                },
-                            this.options[k]
-                            );
-                    }
+                case 'DEBUG_MODE':
+                    if (v) this.log(msg, true);
+                    break;
+            }
+
+            if (this.isSimpleObj(old)) {
+                if (this.isSimpleObj(v)) {
+                    _.each(
+                        v,
+                        function(newValue, newKey) {
+                            if (_.has(this, newKey)) this[newKey] = newValue;
+                        },
+                        this.options[k]
+                    );
                 }
-                else
-                {
-                    this.options[k] = v
-                }
+            }
+            else {
+                this.options[k] = v;
             }
         }
 
-        return this
+        return this;
     },
 
-    setPage : function(n, f)
-    {
-        return this.setState('page', n, f)
+    /**
+     * Set the current page state.
+     *
+     * @public
+     * @param {number|string} n - New page number.
+     * @param {Function} [f] - Optional callback fired after state hooks.
+     * @returns {Mochi} Fluent instance.
+     */
+    setPage: function(n, f) {
+        return this.setState('page', n, f);
     },
 
-    setState : function(s, n, f)
-    {
+    /**
+     * Set the current page/view state and fire corresponding unload/load hooks.
+     *
+     * @public
+     * @param {string} s - State name. Expected values are `page` or `view`.
+     * @param {number|string} n - New state number.
+     * @param {Function} [f] - Optional callback fired after state hooks.
+     * @returns {Mochi} Fluent instance.
+     */
+    setState: function(s, n, f) {
         if (
-          s
-          && typeof s === 'string'
-          && /^page|view$/i.test(s)
-          && /^\d+(\.\d+)?$/.test(n))
-        {
-            var state = window.s.capitalize(s, true),
-                old_n = Number(this['get'+state]()),
-                new_n = Number(n);
+            s &&
+            typeof s === 'string' &&
+            /^(page|view)$/i.test(s) &&
+            /^\d+(\.\d+)?$/.test(n)
+        ) {
+            var state = window.s.capitalize(s, true);
+            var old_n = Number(this['get' + state]());
+            var new_n = Number(n);
 
-            if (new_n != old_n)
-            {
+            if (new_n !== old_n) {
                 var data = {
                     caller         : null,
                     newStateNumber : new_n,
                     oldStateNumber : old_n,
                     stateName      : state.toLowerCase(),
-                    };
+                };
 
-                this.__html.attr('data-'+state.toLowerCase(), new_n);
-                this['unload'+state](old_n, _.extend(_.clone(data), {caller : 'unload'+state}));
-                this['load'+state](new_n, _.extend(_.clone(data), {caller : 'load'+state}));
+                this.__html.attr('data-' + state.toLowerCase(), new_n);
+                this['unload' + state](old_n, _.extend(_.clone(data), { caller : 'unload' + state }));
+                this['load' + state](new_n, _.extend(_.clone(data), { caller : 'load' + state }));
 
                 if (
-                  f
-                  && _.isFunction(f))
-                {
+                    f &&
+                    _.isFunction(f)
+                ) {
                     f.call(
                         this,
                         _.extend(
                             _.clone(data),
-                            {caller : f.constructor.name}
-                            )
-                        );
+                            { caller : f.constructor.name }
+                        )
+                    );
                 }
             }
         }
 
-        return this
+        return this;
     },
 
-    setView : function(n, f)
-    {
-        return this.setState('view', n, f)
+    /**
+     * Set the current view state.
+     *
+     * @public
+     * @param {number|string} n - New view number.
+     * @param {Function} [f] - Optional callback fired after state hooks.
+     * @returns {Mochi} Fluent instance.
+     */
+    setView: function(n, f) {
+        return this.setState('view', n, f);
     },
 
-    unload : function(k, n, o)
-    {
+    /**
+     * Fire unload hooks for a page or view state.
+     *
+     * @public
+     * @param {string} k - State name. Expected values are `page` or `view`.
+     * @param {number|string} n - State number to unload.
+     * @param {Object} [o] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    unload: function(k, n, o) {
         if (
-          k
-          && typeof k === 'string'
-          && /^page|view$/i.test(k)
-          && /^\d+(\.\d+)?$/.test(n))
-        {
-            var k = k.toLowerCase(),
-                n = Number(n),
-                h = 'mochi_unload_'+k+n.toString().replace(/\D/g,'_'),
-                a = [
-                    _.defaults(
-                        this.isSimpleObj(o) ? o : {},
-                        {
-                            caller         : null,
-                            newStateNumber : n,
-                            oldStateNumber : n,
-                            stateName      : k,
-                        }
-                        )
-                    ];
+            k &&
+            typeof k === 'string' &&
+            /^(page|view)$/i.test(k) &&
+            /^\d+(\.\d+)?$/.test(n)
+        ) {
+            k = k.toLowerCase();
+            n = Number(n);
+
+            var h = 'mochi_unload_' + k + n.toString().replace(/\D/g, '_');
+            var a = [
+                _.defaults(
+                    this.isSimpleObj(o) ? o : {},
+                    {
+                        caller         : null,
+                        newStateNumber : n,
+                        oldStateNumber : n,
+                        stateName      : k,
+                    }
+                ),
+            ];
 
             this.do(
                 [
                     'mochi_unload',
-                    'mochi_unload_'+k,
+                    'mochi_unload_' + k,
                     h,
                     'mochi_onchange',
                 ],
                 a
-                );
+            );
         }
 
-        return this
+        return this;
     },
 
-    unloadPage : function(n, f)
-    {
-        return this.unload('page', n, f)
+    /**
+     * Fire page unload hooks.
+     *
+     * @public
+     * @param {number|string} n - Page number to unload.
+     * @param {Object} [f] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    unloadPage: function(n, f) {
+        return this.unload('page', n, f);
     },
 
-    unloadView : function(n, f)
-    {
-        return this.unload('view', n, f)
+    /**
+     * Fire view unload hooks.
+     *
+     * @public
+     * @param {number|string} n - View number to unload.
+     * @param {Object} [f] - Additional hook payload values.
+     * @returns {Mochi} Fluent instance.
+     */
+    unloadView: function(n, f) {
+        return this.unload('view', n, f);
     },
 
-    widgetOnDownloading : function(text, icon, spin)
-    {
-        var k = 'mochiAlertDownloading',
-            c = this.__body.find('#'+k+'-container'),
-            o,
-            d,
-            y,
-            t,
-            i,
-            s;
+    /**
+     * Render the syncing/downloading alert widget.
+     *
+     * @public
+     * @param {string|number} [text] - Override alert text.
+     * @param {string|number} [icon] - Override Font Awesome icon class.
+     * @param {boolean} [spin] - Override icon spin behavior.
+     * @returns {Mochi} Fluent instance.
+     */
+    widgetOnDownloading: function(text, icon, spin) {
+        var k = 'mochiAlertDownloading';
+        var c = this.__body.find('#' + k + '-container');
+        var o;
+        var d;
+        var y;
+        var t;
+        var i;
+        var s;
 
-        if (!c.length)
-        {
+        if (!c.length) {
             o = this.getOption('SW_VERBOSE_SYNCING_OPTIONS');
             d = this.getDefaultOption('SW_VERBOSE_SYNCING_OPTIONS');
-            y = function(v){return (/^string|number$/.test(typeof v) && /\S/.test(v))};
-            t = ( y(text) ? text : (y(o.text) ? o.text : d.text) ).trim();
-            i = ( y(icon) ? icon : (y(o.icon) ? o.icon : d.icon) ).trim();
+            y = function(v) { return (/^(string|number)$/.test(typeof v) && /\S/.test(v)); };
+            t = (y(text) ? text : (y(o.text) ? o.text : d.text)).trim();
+            i = (y(icon) ? icon : (y(o.icon) ? o.icon : d.icon)).trim();
             s = Boolean(arguments.length < 3 ? o.spin : spin);
 
             this.__body.append(
-                  '<div id="mochiAlertDownloading-container">'
-                +   '<div class="alert alert-info alert-dismissible fade show" role="alert">'
-                +     '<span class="small"><strong>'+t+'</strong>&nbsp;&nbsp;<i class="fas '+i+(s?'fa-spin':'')+'fa-lg"></i></span>'
-                +     '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-                +       '<span aria-hidden="true">&times;</span>'
-                +     '</button>'
-                +   '</div>'
-                + '</div>'
-                );
+                '<div id="mochiAlertDownloading-container">' +
+                    '<div class="alert alert-info alert-dismissible fade show" role="alert">' +
+                        '<span class="small"><strong>' + t + '</strong>&nbsp;&nbsp;<i class="fas ' + i + (s ? ' fa-spin ' : ' ') + 'fa-lg"></i></span>' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                            '<span aria-hidden="true">&times;</span>' +
+                        '</button>' +
+                    '</div>' +
+                '</div>'
+            );
 
-            $('#'+k+'-container .alert').on(
+            $('#' + k + '-container .alert').on(
                 'closed.bs.alert',
-                new Function(
-                    "$('#"+k+"-container').remove()"
-                    )
-                );
+                function() {
+                    $('#' + k + '-container').remove();
+                }
+            );
         }
 
-        return this
+        return this;
     },
 
-    widgetOnUpdateReady : function(buttonTitle, dialogButtonTitle, dialogContent, dialogTitle)
-    {
-        var k = 'mochiModalUpdateAvailable',
-            c = this.__body.find('#'+k+'-container'),
-            o,
-            d,
-            y,
-            v;
+    /**
+     * Render the update-available modal widget.
+     *
+     * @public
+     * @param {string|number} [buttonTitle] - Override update button title.
+     * @param {string|number} [dialogButtonTitle] - Override modal action button title.
+     * @param {string|number} [dialogContent] - Override modal body content.
+     * @param {string|number} [dialogTitle] - Override modal title.
+     * @returns {Mochi} Fluent instance.
+     */
+    widgetOnUpdateReady: function(buttonTitle, dialogButtonTitle, dialogContent, dialogTitle) {
+        var k = 'mochiModalUpdateAvailable';
+        var c = this.__body.find('#' + k + '-container');
+        var o;
+        var d;
+        var y;
+        var v;
 
-        if (!c.length)
-        {
+        if (!c.length) {
             o = this.getOption('SW_UPDATE_NOTIFICATIONS_OPTIONS');
             d = this.getDefaultOption('SW_UPDATE_NOTIFICATIONS_OPTIONS');
-            y = function(v){return (/^string|number$/.test(typeof v) && /\S/.test(v))};
+            y = function(value) { return (/^(string|number)$/.test(typeof value) && /\S/.test(value)); };
             v = {};
 
-            v.buttonTitle       = ( y( buttonTitle       ) ? buttonTitle       : ( y(o.buttonTitle)       ? o.buttonTitle       : d.buttonTitle       ) ).trim();
-            v.dialogButtonTitle = ( y( dialogButtonTitle ) ? dialogButtonTitle : ( y(o.dialogButtonTitle) ? o.dialogButtonTitle : d.dialogButtonTitle ) ).trim();
-            v.dialogContent     = ( y( dialogContent     ) ? dialogContent     : ( y(o.dialogContent)     ? o.dialogContent     : d.dialogContent     ) ).trim();
-            v.dialogTitle       = ( y( dialogTitle       ) ? dialogTitle       : ( y(o.dialogTitle)       ? o.dialogTitle       : d.dialogTitle       ) ).trim();
+            v.buttonTitle       = (y(buttonTitle)       ? buttonTitle       : (y(o.buttonTitle)       ? o.buttonTitle       : d.buttonTitle)).trim();
+            v.dialogButtonTitle = (y(dialogButtonTitle) ? dialogButtonTitle : (y(o.dialogButtonTitle) ? o.dialogButtonTitle : d.dialogButtonTitle)).trim();
+            v.dialogContent     = (y(dialogContent)     ? dialogContent     : (y(o.dialogContent)     ? o.dialogContent     : d.dialogContent)).trim();
+            v.dialogTitle       = (y(dialogTitle)       ? dialogTitle       : (y(o.dialogTitle)       ? o.dialogTitle       : d.dialogTitle)).trim();
 
             this.__body.append(
-                  '<div id="'+k+'-container">'
-                +   '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#'+k+'">'
-                +     v.buttonTitle
-                +   '</button>'
-                + '</div>'
-                + '<div class="modal fade" id="'+k+'" tabindex="-1" role="dialog" aria-labelledby="'+k+'Label" aria-hidden="true">'
-                +   '<div class="modal-dialog modal-dialog-centered" role="document">'
-                +     '<div class="modal-content">'
-                +       '<div class="modal-header">'
-                +         '<h5 class="modal-title" id="'+k+'Label">'+v.dialogTitle+'</h5>'
-                +         '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'
-                +           '<span aria-hidden="true">&times;</span>'
-                +         '</button>'
-                +       '</div>'
-                +       '<div class="modal-body">'
-                +         v.dialogContent
-                +       '</div>'
-                +       '<div class="modal-footer">'
-                +         '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>'
-                +         '<button type="button" class="btn btn-success" onclick="window.location.reload(true)">'+v.dialogButtonTitle+'</button>'
-                +       '</div>'
-                +     '</div>'
-                +   '</div>'
-                + '</div>'
-                );
+                '<div id="' + k + '-container">' +
+                    '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#' + k + '">' +
+                        v.buttonTitle +
+                    '</button>' +
+                '</div>' +
+                '<div class="modal fade" id="' + k + '" tabindex="-1" role="dialog" aria-labelledby="' + k + 'Label" aria-hidden="true">' +
+                    '<div class="modal-dialog modal-dialog-centered" role="document">' +
+                        '<div class="modal-content">' +
+                            '<div class="modal-header">' +
+                                '<h5 class="modal-title" id="' + k + 'Label">' + v.dialogTitle + '</h5>' +
+                                '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                                    '<span aria-hidden="true">&times;</span>' +
+                                '</button>' +
+                            '</div>' +
+                            '<div class="modal-body">' +
+                                v.dialogContent +
+                            '</div>' +
+                            '<div class="modal-footer">' +
+                                '<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>' +
+                                '<button type="button" class="btn btn-success" onclick="window.location.reload(true)">' + v.dialogButtonTitle + '</button>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+            );
 
-            $('#'+k).on(
+            $('#' + k).on(
                 'hidden.bs.modal',
-                new Function(
-                      "$('#"+k+"-container').remove();"
-                    + "$(this).modal('dispose').remove()"
-                    )
-                );
+                function() {
+                    $('#' + k + '-container').remove();
+                    $(this).modal('dispose').remove();
+                }
+            );
         }
 
-        return this
+        return this;
     },
 };
 
-/*
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-*/
+/* ========================================================================== */
+/* Errors                                                                     */
+/* ========================================================================== */
 
+/**
+ * Error thrown by Mochi framework operations.
+ *
+ * @extends Error
+ */
 class MochiError extends Error {
+
+    /**
+     * Create a Mochi-specific error.
+     *
+     * @param {string} message - Error message.
+     */
     constructor(message) {
         super(message);
-        this.name = 'MochiError'
-        }
-    };
+        this.name = 'MochiError';
+    }
+}
